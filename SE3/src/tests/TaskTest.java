@@ -107,5 +107,22 @@ public class TaskTest extends TestCase
 	
 
 	
-	
+    /**
+	 * Test #6
+	 * Objective: Verify Valid description returns true.
+	 * Input: String description = "Blue"  (4 Chars = MIN CHARS)
+	 * Output: True
+	 */
+    
+    public void testValidDescription1() {
+    	try {
+    	Task task  = new Task ();
+    	String description = "Blue";
+    	assertFalse(Task.isValidDescription(description));
+    	} catch (Exception e) 
+    	{
+        fail("Exception NOT expected.");
+    	}
+    }
+    
 }
