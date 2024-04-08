@@ -1,4 +1,6 @@
 package tests;
+import java.time.LocalDate;
+
 import junit.framework.TestCase;
 import proj.Task;
 
@@ -118,6 +120,67 @@ public class TaskTest extends TestCase
     	try {
     	Task task  = new Task ();
     	String description = "Blue";
+    	assertTrue(Task.isValidDescription(description));
+    	} catch (Exception e) 
+    	{
+        fail("Exception NOT expected.");
+    	}
+    }
+    
+    
+    
+    
+    /**
+	 * Test #7
+	 * Objective: Verify Valid description returns true.
+	 * Input: String description = "52 Dublin Street, collect package"  (33 Chars = MIN CHARS)
+	 * Output: True
+	 */
+    
+    public void testValidDescription2() {
+    	try {
+    	Task task  = new Task ();
+    	String description = "52 Dublin Street, collect package";
+    	assertTrue(Task.isValidDescription(description));
+    	} catch (Exception e) 
+    	{
+        fail("Exception NOT expected.");
+    	}
+    }
+    
+    
+    
+    /**
+	 * Test #8
+	 * Objective: Verify Valid description returns true.
+	 * Input: String description = "Visit Jason and Samantha in the hospital"  (40 Chars = MAX CHARS)
+	 * Output: True
+	 */
+    
+    public void testValidDescription3() {
+    	try {
+    	Task task  = new Task ();
+    	String description = "Visit Jason and Samantha in the hospital";
+    	assertTrue(Task.isValidDescription(description));
+    	} catch (Exception e) 
+    	{
+        fail("Exception NOT expected.");
+    	}
+    }
+    
+    
+    
+    /**
+	 * Test #9
+	 * Objective: Verify Invalid description returns false.
+	 * Input: String description = ""  (0 CHARS < MIN CHARS)
+	 * Output: False
+	 */
+    
+    public void testInvalidDescription1() {
+    	try {
+    	Task task  = new Task ();
+    	String description = "";
     	assertFalse(Task.isValidDescription(description));
     	} catch (Exception e) 
     	{
@@ -125,4 +188,118 @@ public class TaskTest extends TestCase
     	}
     }
     
+    
+    
+    /**
+	 * Test #10
+	 * Objective: Verify Invalid description returns false.
+	 * Input: String description = "Pick Samantha and Jason up from the hospital"  (44 CHARS > MAX CHARS)
+	 * Output: False
+	 */
+    
+    public void testInvalidDescription2() {
+    	try {
+    	Task task  = new Task ();
+    	String description = "Pick Samantha and Jason up from the hospital";
+    	assertFalse(Task.isValidDescription(description));
+    	} catch (Exception e) 
+    	{
+        fail("Exception NOT expected.");
+    	}
+    }
+    
+    /**
+ 	 * Test #11
+ 	 * Objective: Verify Valid due date returns true
+ 	 * Input: LocalDate duedate = LocalDate.now();  (DATE IS TODAY = MINIMUM)
+ 	 * Output: True
+ 	 */
+     
+     public void testValidDueDate1() {
+     	try {
+     	Task task  = new Task ();
+     	LocalDate duedate = LocalDate.now();
+     	assertTrue(Task.isValidDate(duedate));
+     	} catch (Exception e) 
+     	{
+         fail("Exception NOT expected.");
+     	}
+     }
+     
+     
+     
+     /**
+  	 * Test #12
+  	 * Objective: Verify Valid due date returns true
+  	 * Input: LocalDate duedate = currentDate.plusYears(3);  (DATE IS IN THE FUTURE = IN-RANGE)
+  	 * Output: True
+  	 */
+      
+      public void testValidDueDate2() {
+      	try {
+      	Task task  = new Task ();
+      	LocalDate currentDate = LocalDate.now();
+      	LocalDate duedate = currentDate.plusYears(3);
+      	assertTrue(Task.isValidDate(duedate));
+      	} catch (Exception e) 
+      	{
+          fail("Exception NOT expected.");
+      	}
+      }
+      
+      /**
+    	 * Test #13
+    	 * Objective: Verify Valid due date returns true
+    	 * Input: LocalDate duedate = currentDate.plusYears(150);  (DATE IS CURRENT DATE + 150 YEARS = MAX DATE)
+    	 * Output: True
+    	 */
+        
+        public void testValidDueDate3() {
+        	try {
+        	LocalDate currentDate = LocalDate.now();
+            LocalDate duedate = currentDate.plusYears(150);
+            assertTrue(Task.isValidDate(duedate));
+        	} catch (Exception e) 
+        	{
+            fail("Exception NOT expected.");
+        	}
+        }
+        
+        /**
+      	 * Test #14
+      	 * Objective: Verify Invalid due date returns true
+      	 * Input: LocalDate duedate = currentDate.minusYears(1);  (DUE DATE IS BEFORE THE MINIMUM DATE)
+      	 * Output: False
+      	 */
+          
+          public void testInvalidDueDate1() {
+          	try {
+          	Task task  = new Task ();
+          	LocalDate currentDate = LocalDate.now();
+          	LocalDate duedate = currentDate.minusYears(1);
+          	assertFalse(Task.isValidDate(duedate));
+          	} catch (Exception e) 
+          	{
+              fail("Exception NOT expected.");
+          	}
+          }
+          
+          /**
+        	 * Test #14
+        	 * Objective: Verify Invalid due date returns true
+        	 * Input: LocalDate duedate = currentDate.plusYears(151);  (DUE DATE IS PAST THE MAXIMUM DATE)
+        	 * Output: False
+        	 */
+            
+            public void testInvalidDueDate2() {
+            	try {
+            	Task task  = new Task ();
+            	LocalDate currentDate = LocalDate.now();
+            	LocalDate duedate = currentDate.plusYears(151);
+            	assertFalse(Task.isValidDate(duedate));
+            	} catch (Exception e) 
+            	{
+                fail("Exception NOT expected.");
+            	}
+            }
 }
