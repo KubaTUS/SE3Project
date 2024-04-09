@@ -314,7 +314,7 @@ public class TaskTest extends TestCase
               	try {
               	Task task  = new Task ();
               	int prioritylevel = 1;
-              	assertTrue(Task.isValid(prioritylevel));
+              	assertTrue(Task.isValidPriorityLevel(prioritylevel));
               	} catch (Exception e) 
               	{
                   fail("Exception NOT expected.");

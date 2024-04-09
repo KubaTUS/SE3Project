@@ -76,7 +76,14 @@ public class Task
 	
 	public static boolean isValidPriorityLevel(int prioritylevel) 
 	{
-		
+		if (prioritylevel > 0 && prioritylevel < 4)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 }
