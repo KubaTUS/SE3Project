@@ -47,7 +47,14 @@ public class Task
 	
 	public static boolean isValidTitle(String title) 
 	{
-
+		if (title.length() > 3 && title.length() < 21)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public static boolean isValidDescription(String description) 
@@ -62,7 +69,7 @@ public class Task
 	
 	public static boolean isValidPriorityLevel(int prioritylevel) 
 	{
-
+		
 	}
 
 }
