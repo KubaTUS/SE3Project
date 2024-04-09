@@ -285,7 +285,7 @@ public class TaskTest extends TestCase
           }
           
           /**
-        	 * Test #14
+        	 * Test #15
         	 * Objective: Verify Invalid due date returns true
         	 * Input: LocalDate duedate = currentDate.plusYears(151);  (DUE DATE IS PAST THE MAXIMUM DATE)
         	 * Output: False
@@ -302,4 +302,94 @@ public class TaskTest extends TestCase
                 fail("Exception NOT expected.");
             	}
             }
+            
+            /**
+          	 * Test #16
+          	 * Objective: Verify Valid Priority Level returns true.
+          	 * Input: int prioritylevel = 1;  (PRIORITY LEVEL = MIN NUM)
+          	 * Output: True
+          	 */
+              
+              public void testValidPriorityLevel1() {
+              	try {
+              	Task task  = new Task ();
+              	int prioritylevel = 1;
+              	assertTrue(Task.isValid(prioritylevel));
+              	} catch (Exception e) 
+              	{
+                  fail("Exception NOT expected.");
+              	}
+              }
+              
+              /**
+            	 * Test #17
+            	 * Objective: Verify Valid Priority Level returns true.
+            	 * Input: int prioritylevel = 2;  (PRIORITY LEVEL = IN-RANGE)
+            	 * Output: True
+            	 */
+                
+                public void testValidPriorityLevel2() {
+                	try {
+                	Task task  = new Task ();
+                	int prioritylevel = 2;
+                	assertTrue(Task.isValidPriorityLevel(prioritylevel));
+                	} catch (Exception e) 
+                	{
+                    fail("Exception NOT expected.");
+                	}
+                }
+                
+                /**
+              	 * Test #18
+              	 * Objective: Verify Valid Priority Level returns true.
+              	 * Input: int prioritylevel = 3;  (PRIORITY LEVEL = MAX NUM)
+              	 * Output: True
+              	 */
+                  
+                  public void testValidPriorityLevel3() {
+                  	try {
+                  	Task task  = new Task ();
+                  	int prioritylevel = 3;
+                  	assertTrue(Task.isValidPriorityLevel(prioritylevel));
+                  	} catch (Exception e) 
+                  	{
+                      fail("Exception NOT expected.");
+                  	}
+                  }
+                  
+                  /**
+                	 * Test #19
+                	 * Objective: Verify Invalid Priority Level returns false.
+                	 * Input: int prioritylevel = 0;  (PRIORITY LEVEL = BELOW MINIMUM NUM)
+                	 * Output: True
+                	 */
+                    
+                    public void testInvalidPriorityLevel1() {
+                    	try {
+                    	Task task  = new Task ();
+                    	int prioritylevel = 0;
+                    	assertFalse(Task.isValidPriorityLevel(prioritylevel));
+                    	} catch (Exception e) 
+                    	{
+                        fail("Exception NOT expected.");
+                    	}
+                    }
+                    
+                    /**
+                  	 * Test #20
+                  	 * Objective: Verify Invalid Priority Level returns false.
+                  	 * Input: int prioritylevel = 4;  (PRIORITY LEVEL = BELOW MINIMUM NUM)
+                  	 * Output: True
+                  	 */
+                      
+                      public void testInvalidPriorityLevel2() {
+                      	try {
+                      	Task task  = new Task ();
+                      	int prioritylevel = 0;
+                      	assertFalse(Task.isValidPriorityLevel(prioritylevel));
+                      	} catch (Exception e) 
+                      	{
+                          fail("Exception NOT expected.");
+                      	}
+                      }
 }

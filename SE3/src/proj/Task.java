@@ -49,5 +49,20 @@ public class Task
 	{
 
 	}
+	
+	public static boolean isValidDescription(String description) 
+	{
+
+	}
+	
+	public static boolean isValidDate(LocalDate duedate) 
+	{
+
+	}
+	
+	public static boolean isValidPriorityLevel(int prioritylevel) 
+	{
+
+	}
 
 }
