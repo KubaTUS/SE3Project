@@ -133,7 +133,7 @@ public class TaskTest extends TestCase
     /**
 	 * Test #7
 	 * Objective: Verify Valid description returns true.
-	 * Input: String description = "52 Dublin Street, collect package"  (33 Chars = MIN CHARS)
+	 * Input: String description = "52 Dublin Street, collect package"  (33 Chars = IN-RANGE CHARS)
 	 * Output: True
 	 */
     

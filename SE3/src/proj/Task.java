@@ -59,7 +59,14 @@ public class Task
 	
 	public static boolean isValidDescription(String description) 
 	{
-
+		if (description.length() > 3 && description.length() < 41)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public static boolean isValidDate(LocalDate duedate) 
