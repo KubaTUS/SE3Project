@@ -378,14 +378,14 @@ public class TaskTest extends TestCase
                     /**
                   	 * Test #20
                   	 * Objective: Verify Invalid Priority Level returns false.
-                  	 * Input: int prioritylevel = 4;  (PRIORITY LEVEL = BELOW MINIMUM NUM)
+                  	 * Input: int prioritylevel = 4;  (PRIORITY LEVEL = ABOVE MAXIMUM NUM)
                   	 * Output: True
                   	 */
                       
                       public void testInvalidPriorityLevel2() {
                       	try {
                       	Task task  = new Task ();
-                      	int prioritylevel = 0;
+                      	int prioritylevel = 4;
                       	assertFalse(Task.isValidPriorityLevel(prioritylevel));
                       	} catch (Exception e) 
                       	{
