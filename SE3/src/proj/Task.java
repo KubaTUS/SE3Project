@@ -71,9 +71,12 @@ public class Task
 	
 	public static boolean isValidDate(LocalDate duedate) 
 	{
-
+		LocalDate currentDate = LocalDate.now();
+        LocalDate maxDate = currentDate.plusYears(150);
+        
+        return !duedate.isBefore(currentDate.minusDays(1)) && !duedate.isAfter(maxDate);
 	}
-	
+		
 	public static boolean isValidPriorityLevel(int prioritylevel) 
 	{
 		if (prioritylevel > 0 && prioritylevel < 4)
