@@ -1,10 +1,7 @@
 package proj;
 
 
-import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import Exceptions.K_Exception;
 
 public class Task 
@@ -15,7 +12,8 @@ public class Task
 	private LocalDate duedate;
 	
 	
-	public Task(String title, String description,int prioritylevel,LocalDate duedate) throws K_Exception{
+	public Task(String title, String description,int prioritylevel,LocalDate duedate) throws K_Exception
+	{
 		this.title = title;
 		this.description = description;
 		this.prioritylevel = prioritylevel;
@@ -80,5 +78,14 @@ public class Task
 	{
 		return prioritylevel > 0 && prioritylevel < 4;
 	}
+
+	public LocalDate getDuedate() {
+		return duedate;
+	}
+
+	public void setDuedate(LocalDate duedate) {
+		this.duedate = duedate;
+	}
+
 
 }
