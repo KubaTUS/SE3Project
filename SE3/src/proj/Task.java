@@ -5,6 +5,7 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import Exceptions.K_Exception;
 
 public class Task 
 {
@@ -13,6 +14,18 @@ public class Task
 	private int prioritylevel;
 	private LocalDate duedate;
 	
+	
+	public Task(String title, String description,int prioritylevel,LocalDate duedate) throws K_Exception{
+		this.title = title;
+		this.description = description;
+		this.prioritylevel = prioritylevel;
+		this.duedate = duedate;
+	}
+	
+	public Task()
+	{
+		
+	}
 	
 	public String getTitle() 
 	{
@@ -47,26 +60,12 @@ public class Task
 	
 	public static boolean isValidTitle(String title) 
 	{
-		if (title.length() > 3 && title.length() < 21)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return title.length() > 3 && title.length() < 21;
 	}
 	
 	public static boolean isValidDescription(String description) 
 	{
-		if (description.length() > 3 && description.length() < 41)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return description.length() > 3 && description.length() < 41;
 	}
 	
 	public static boolean isValidDate(LocalDate duedate) 
@@ -79,14 +78,7 @@ public class Task
 		
 	public static boolean isValidPriorityLevel(int prioritylevel) 
 	{
-		if (prioritylevel > 0 && prioritylevel < 4)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return prioritylevel > 0 && prioritylevel < 4;
 	}
 
 }

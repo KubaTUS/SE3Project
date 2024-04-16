@@ -17,7 +17,6 @@ public class TaskTest extends TestCase
 	
     public void testValidTitle() {
     	try {
-    	Task task  = new Task ();
     	String title = "Read";
     	assertTrue(Task.isValidTitle(title));
     	} catch (Exception e) 
@@ -37,7 +36,6 @@ public class TaskTest extends TestCase
 	
     public void testValidTitle2() {
     	try {
-    	Task task  = new Task ();
     	String title = "Read";
     	assertTrue(Task.isValidTitle(title));
     	} catch (Exception e) 
@@ -57,7 +55,6 @@ public class TaskTest extends TestCase
 	
     public void testValidTitle3() {
     	try {
-    	Task task  = new Task ();
     	String title = "Finish Harry Potter.";
     	assertTrue(Task.isValidTitle(title));
     	} catch (Exception e) 
@@ -77,7 +74,6 @@ public class TaskTest extends TestCase
 	
     public void testInvalidTitle() {
     	try {
-    	Task task  = new Task ();
     	String title = "";
     	assertFalse(Task.isValidTitle(title));
     	} catch (Exception e) 
@@ -97,7 +93,6 @@ public class TaskTest extends TestCase
 	
     public void testInvalidTitle2() {
     	try {
-    	Task task  = new Task ();
     	String title = "Go play football with friends.";
     	assertFalse(Task.isValidTitle(title));
     	} catch (Exception e) 
@@ -118,7 +113,6 @@ public class TaskTest extends TestCase
     
     public void testValidDescription1() {
     	try {
-    	Task task  = new Task ();
     	String description = "Blue";
     	assertTrue(Task.isValidDescription(description));
     	} catch (Exception e) 
@@ -139,7 +133,6 @@ public class TaskTest extends TestCase
     
     public void testValidDescription2() {
     	try {
-    	Task task  = new Task ();
     	String description = "52 Dublin Street, collect package";
     	assertTrue(Task.isValidDescription(description));
     	} catch (Exception e) 
@@ -159,7 +152,6 @@ public class TaskTest extends TestCase
     
     public void testValidDescription3() {
     	try {
-    	Task task  = new Task ();
     	String description = "Visit Jason and Samantha in the hospital";
     	assertTrue(Task.isValidDescription(description));
     	} catch (Exception e) 
@@ -179,7 +171,6 @@ public class TaskTest extends TestCase
     
     public void testInvalidDescription1() {
     	try {
-    	Task task  = new Task ();
     	String description = "";
     	assertFalse(Task.isValidDescription(description));
     	} catch (Exception e) 
@@ -199,7 +190,6 @@ public class TaskTest extends TestCase
     
     public void testInvalidDescription2() {
     	try {
-    	Task task  = new Task ();
     	String description = "Pick Samantha and Jason up from the hospital";
     	assertFalse(Task.isValidDescription(description));
     	} catch (Exception e) 
@@ -217,7 +207,6 @@ public class TaskTest extends TestCase
      
      public void testValidDueDate1() {
      	try {
-     	Task task  = new Task ();
      	LocalDate duedate = LocalDate.now();
      	assertTrue(Task.isValidDate(duedate));
      	} catch (Exception e) 
@@ -237,7 +226,6 @@ public class TaskTest extends TestCase
       
       public void testValidDueDate2() {
       	try {
-      	Task task  = new Task ();
       	LocalDate currentDate = LocalDate.now();
       	LocalDate duedate = currentDate.plusYears(3);
       	assertTrue(Task.isValidDate(duedate));
@@ -274,7 +262,6 @@ public class TaskTest extends TestCase
           
           public void testInvalidDueDate1() {
           	try {
-          	Task task  = new Task ();
           	LocalDate currentDate = LocalDate.now();
           	LocalDate duedate = currentDate.minusYears(1);
           	assertFalse(Task.isValidDate(duedate));
@@ -293,7 +280,6 @@ public class TaskTest extends TestCase
             
             public void testInvalidDueDate2() {
             	try {
-            	Task task  = new Task ();
             	LocalDate currentDate = LocalDate.now();
             	LocalDate duedate = currentDate.plusYears(151);
             	assertFalse(Task.isValidDate(duedate));
@@ -312,7 +298,6 @@ public class TaskTest extends TestCase
               
               public void testValidPriorityLevel1() {
               	try {
-              	Task task  = new Task ();
               	int prioritylevel = 1;
               	assertTrue(Task.isValidPriorityLevel(prioritylevel));
               	} catch (Exception e) 
@@ -330,7 +315,6 @@ public class TaskTest extends TestCase
                 
                 public void testValidPriorityLevel2() {
                 	try {
-                	Task task  = new Task ();
                 	int prioritylevel = 2;
                 	assertTrue(Task.isValidPriorityLevel(prioritylevel));
                 	} catch (Exception e) 
@@ -348,7 +332,6 @@ public class TaskTest extends TestCase
                   
                   public void testValidPriorityLevel3() {
                   	try {
-                  	Task task  = new Task ();
                   	int prioritylevel = 3;
                   	assertTrue(Task.isValidPriorityLevel(prioritylevel));
                   	} catch (Exception e) 
@@ -366,7 +349,6 @@ public class TaskTest extends TestCase
                     
                     public void testInvalidPriorityLevel1() {
                     	try {
-                    	Task task  = new Task ();
                     	int prioritylevel = 0;
                     	assertFalse(Task.isValidPriorityLevel(prioritylevel));
                     	} catch (Exception e) 
@@ -384,7 +366,6 @@ public class TaskTest extends TestCase
                       
                       public void testInvalidPriorityLevel2() {
                       	try {
-                      	Task task  = new Task ();
                       	int prioritylevel = 4;
                       	assertFalse(Task.isValidPriorityLevel(prioritylevel));
                       	} catch (Exception e) 
