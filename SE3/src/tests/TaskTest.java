@@ -165,13 +165,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #9
 	 * Objective: Verify Invalid description returns false.
-	 * Input: String description = ""  (0 CHARS < MIN CHARS)
+	 * Input: String description = "Dee"  (0 CHARS < MIN CHARS. EDGE TEST CASE)
 	 * Output: False
 	 */
     
     public void testInvalidDescription1() {
     	try {
-    	String description = "";
+    	String description = "Dee";
     	assertFalse(Task.isValidDescription(description));
     	} catch (Exception e) 
     	{
@@ -184,7 +184,7 @@ public class TaskTest extends TestCase
     /**
 	 * Test #10
 	 * Objective: Verify Invalid description returns false.
-	 * Input: String description = "Pick Samantha and Jason up from the hospital"  (44 CHARS > MAX CHARS)
+	 * Input: String description = "Pick Samantha and Jason up from Barcelona"  (41 CHARS > MAX CHARS. EDGE TEST CASE)
 	 * Output: False
 	 */
     
