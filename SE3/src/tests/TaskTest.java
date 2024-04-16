@@ -256,14 +256,14 @@ public class TaskTest extends TestCase
         /**
       	 * Test #14
       	 * Objective: Verify Invalid due date returns true
-      	 * Input: LocalDate duedate = currentDate.minusYears(1);  (DUE DATE IS BEFORE THE MINIMUM DATE)
+      	 * Input: LocalDate duedate = currentDate.minusDays(1);  (DUE DATE IS BEFORE THE MINIMUM DATE. EDGE TEST CASE)
       	 * Output: False
       	 */
           
           public void testInvalidDueDate1() {
           	try {
           	LocalDate currentDate = LocalDate.now();
-          	LocalDate duedate = currentDate.minusYears(1);
+          	LocalDate duedate = currentDate.minusDays(2);
           	assertFalse(Task.isValidDate(duedate));
           	} catch (Exception e) 
           	{
@@ -274,14 +274,14 @@ public class TaskTest extends TestCase
           /**
         	 * Test #15
         	 * Objective: Verify Invalid due date returns true
-        	 * Input: LocalDate duedate = currentDate.plusYears(151);  (DUE DATE IS PAST THE MAXIMUM DATE)
+        	 * Input: LocalDate duedate = currentDate.plusYears(151);  (DUE DATE IS PAST THE MAXIMUM DATE. EDGE TEST CASE)
         	 * Output: False
         	 */
             
             public void testInvalidDueDate2() {
             	try {
             	LocalDate currentDate = LocalDate.now();
-            	LocalDate duedate = currentDate.plusYears(151);
+            	LocalDate duedate = currentDate.plusYears(150).plusDays(1);
             	assertFalse(Task.isValidDate(duedate));
             	} catch (Exception e) 
             	{
@@ -343,7 +343,7 @@ public class TaskTest extends TestCase
                   /**
                 	 * Test #19
                 	 * Objective: Verify Invalid Priority Level returns false.
-                	 * Input: int prioritylevel = 0;  (PRIORITY LEVEL = BELOW MINIMUM NUM)
+                	 * Input: int prioritylevel = 0;  (PRIORITY LEVEL = BELOW MINIMUM NUM. EDGE TEST CASE)
                 	 * Output: True
                 	 */
                     
@@ -360,7 +360,7 @@ public class TaskTest extends TestCase
                     /**
                   	 * Test #20
                   	 * Objective: Verify Invalid Priority Level returns false.
-                  	 * Input: int prioritylevel = 4;  (PRIORITY LEVEL = ABOVE MAXIMUM NUM)
+                  	 * Input: int prioritylevel = 4;  (PRIORITY LEVEL = ABOVE MAXIMUM NUM. EDGE TEST CASE)
                   	 * Output: True
                   	 */
                       
