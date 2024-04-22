@@ -101,11 +101,28 @@ public class TaskTest extends TestCase
     	}
     }
     
+    /**
+	 * Test #6
+	 * Objective: Verify Invalid title returns false.
+	 * Input: String title = ""  (NULL CHARS)
+	 * Output: False
+	 */
+	
+    public void testInvalidTitle3() {
+    	try {
+    	String title = "";
+    	assertFalse(Task.isValidTitle(title));
+    	} catch (Exception e) 
+    	{
+        fail("Exception NOT expected.");
+    	}
+    }
+    
 	
 
 	
     /**
-	 * Test #6
+	 * Test #7
 	 * Objective: Verify Valid description returns true.
 	 * Input: String description = "Blue"  (4 Chars = MIN CHARS)
 	 * Output: True
@@ -125,7 +142,7 @@ public class TaskTest extends TestCase
     
     
     /**
-	 * Test #7
+	 * Test #8
 	 * Objective: Verify Valid description returns true.
 	 * Input: String description = "52 Dublin Street, collect package"  (33 Chars = IN-RANGE CHARS)
 	 * Output: True
@@ -144,7 +161,7 @@ public class TaskTest extends TestCase
     
     
     /**
-	 * Test #8
+	 * Test #9
 	 * Objective: Verify Valid description returns true.
 	 * Input: String description = "Visit Jason and Samantha in the hospital"  (40 Chars = MAX CHARS)
 	 * Output: True
@@ -163,7 +180,7 @@ public class TaskTest extends TestCase
     
     
     /**
-	 * Test #9
+	 * Test #10
 	 * Objective: Verify Invalid description returns false.
 	 * Input: String description = "Dee"  (0 CHARS < MIN CHARS. EDGE TEST CASE)
 	 * Output: False
@@ -182,7 +199,7 @@ public class TaskTest extends TestCase
     
     
     /**
-	 * Test #10
+	 * Test #11
 	 * Objective: Verify Invalid description returns false.
 	 * Input: String description = "Pick Samantha and Jason up from Barcelona"  (41 CHARS > MAX CHARS. EDGE TEST CASE)
 	 * Output: False
@@ -199,7 +216,24 @@ public class TaskTest extends TestCase
     }
     
     /**
- 	 * Test #11
+	 * Test #12
+	 * Objective: Verify Invalid description returns false.
+	 * Input: String description = ""  (NULL CHARS)
+	 * Output: False
+	 */
+	
+    public void testInvalidDescription3() {
+    	try {
+    	String description = "";
+    	assertFalse(Task.isValidDescription(description));
+    	} catch (Exception e) 
+    	{
+        fail("Exception NOT expected.");
+    	}
+    }
+    
+    /**
+ 	 * Test #13
  	 * Objective: Verify Valid due date returns true
  	 * Input: LocalDate duedate = LocalDate.now();  (DATE IS TODAY = MINIMUM)
  	 * Output: True
@@ -218,7 +252,7 @@ public class TaskTest extends TestCase
      
      
      /**
-  	 * Test #12
+  	 * Test #14
   	 * Objective: Verify Valid due date returns true
   	 * Input: LocalDate duedate = currentDate.plusYears(3);  (DATE IS IN THE FUTURE = IN-RANGE)
   	 * Output: True
@@ -236,7 +270,7 @@ public class TaskTest extends TestCase
       }
       
       /**
-    	 * Test #13
+    	 * Test #15
     	 * Objective: Verify Valid due date returns true
     	 * Input: LocalDate duedate = currentDate.plusYears(150);  (DATE IS CURRENT DATE + 150 YEARS = MAX DATE)
     	 * Output: True
@@ -254,8 +288,8 @@ public class TaskTest extends TestCase
         }
         
         /**
-      	 * Test #14
-      	 * Objective: Verify Invalid due date returns true
+      	 * Test #16
+      	 * Objective: Verify Invalid due date returns false
       	 * Input: LocalDate duedate = currentDate.minusDays(1);  (DUE DATE IS BEFORE THE MINIMUM DATE. EDGE TEST CASE)
       	 * Output: False
       	 */
@@ -272,8 +306,8 @@ public class TaskTest extends TestCase
           }
           
           /**
-        	 * Test #15
-        	 * Objective: Verify Invalid due date returns true
+        	 * Test #17
+        	 * Objective: Verify Invalid due date returns false
         	 * Input: LocalDate duedate = currentDate.plusYears(151);  (DUE DATE IS PAST THE MAXIMUM DATE. EDGE TEST CASE)
         	 * Output: False
         	 */
@@ -289,8 +323,9 @@ public class TaskTest extends TestCase
             	}
             }
             
+            
             /**
-          	 * Test #16
+          	 * Test #18
           	 * Objective: Verify Valid Priority Level returns true.
           	 * Input: int prioritylevel = 1;  (PRIORITY LEVEL = MIN NUM)
           	 * Output: True
@@ -307,7 +342,7 @@ public class TaskTest extends TestCase
               }
               
               /**
-            	 * Test #17
+            	 * Test #19
             	 * Objective: Verify Valid Priority Level returns true.
             	 * Input: int prioritylevel = 2;  (PRIORITY LEVEL = IN-RANGE)
             	 * Output: True
@@ -324,7 +359,7 @@ public class TaskTest extends TestCase
                 }
                 
                 /**
-              	 * Test #18
+              	 * Test #20
               	 * Objective: Verify Valid Priority Level returns true.
               	 * Input: int prioritylevel = 3;  (PRIORITY LEVEL = MAX NUM)
               	 * Output: True
@@ -341,7 +376,7 @@ public class TaskTest extends TestCase
                   }
                   
                   /**
-                	 * Test #19
+                	 * Test #21
                 	 * Objective: Verify Invalid Priority Level returns false.
                 	 * Input: int prioritylevel = 0;  (PRIORITY LEVEL = BELOW MINIMUM NUM. EDGE TEST CASE)
                 	 * Output: True
@@ -358,7 +393,7 @@ public class TaskTest extends TestCase
                     }
                     
                     /**
-                  	 * Test #20
+                  	 * Test #22
                   	 * Objective: Verify Invalid Priority Level returns false.
                   	 * Input: int prioritylevel = 4;  (PRIORITY LEVEL = ABOVE MAXIMUM NUM. EDGE TEST CASE)
                   	 * Output: True
@@ -373,4 +408,6 @@ public class TaskTest extends TestCase
                           fail("Exception NOT expected.");
                       	}
                       }
+                      
+
 }
