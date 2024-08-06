@@ -15,6 +15,7 @@ public class TaskManager
     public void addTask(Task task) 
     {
         tasks.add(task);
+        System.out.println("");
         System.out.println("Task added successfully.");
     }
 

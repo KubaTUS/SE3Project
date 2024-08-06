@@ -1,8 +1,11 @@
 package proj;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.Comparator;
+import java.util.InputMismatchException;
+
 import Exceptions.TaskExceptionHandler;
 
 public class MainMenu 
@@ -79,12 +82,13 @@ public class MainMenu
 
                 if (!Task.isValidTitle(title)) 
                 {
-                    throw new IllegalArgumentException("Title must be between 4 and 20 characters.");
+                    throw new IllegalArgumentException("Title must be between 4 and 20 characters and must contain no numbers.");
                 }
 
                 break;
-
+                
             } 
+            
             catch (Exception e) 
             {
                 System.out.println("Invalid input: " + e.getMessage());
@@ -121,7 +125,12 @@ public class MainMenu
                 }
 
                 break;
-            } 
+            }
+            catch (InputMismatchException e) 
+            {
+                System.out.println("Invalid input: Priority level must be a number between 1 and 3.");
+                sc.nextLine();
+            }
             catch (Exception e) 
             {
                 System.out.println("Invalid input: " + e.getMessage());
@@ -140,11 +149,26 @@ public class MainMenu
                 }
                 break;
             } 
+            
+            catch (DateTimeParseException e) 
+            {
+            	if (e.getMessage().contains("could not be parsed:")) 
+            	{
+                    System.out.println("Invalid input: " + e.getMessage());
+                } 
+            	else 
+                {
+                    System.out.println("Invalid input: Please enter date in valid format YYYY-MM-DD");
+                }
+                sc.nextLine();
+            }
+            
             catch (Exception e) 
             {
                 System.out.println("Invalid input: " + e.getMessage());
                 sc.nextLine();
             }
+            
         }
 
         Task newTask = new Task(title, description, priorityLevel, dueDate);
@@ -237,7 +261,7 @@ public class MainMenu
                     title = sc.nextLine();
                     if (!Task.isValidTitle(title)) 
                     {
-                        throw new IllegalArgumentException("Title must be between 4 and 20 characters.");
+                        throw new IllegalArgumentException("Title must be between 4 and 20 characters and must contain no numbers.");
                     }
                     break;
                 } 
@@ -277,6 +301,11 @@ public class MainMenu
                     }
                     break;
                 } 
+                catch (InputMismatchException e) 
+                {
+                    System.out.println("Invalid input: Priority level must be a number between 1 and 3.");
+                    sc.nextLine();
+                }
                 catch (Exception e) 
                 {
                     System.out.println("Invalid input: " + e.getMessage());
@@ -296,6 +325,19 @@ public class MainMenu
                     }
                     break;
                 } 
+                catch (DateTimeParseException e) 
+                {
+                	if (e.getMessage().contains("could not be parsed:")) 
+                	{
+                        System.out.println("Invalid input: " + e.getMessage());
+                    } 
+                	else 
+                    {
+                        System.out.println("Invalid input: Please enter date in valid format YYYY-MM-DD");
+                    }
+                    sc.nextLine();
+                }
+                
                 catch (Exception e) 
                 {
                     System.out.println("Invalid input: " + e.getMessage());

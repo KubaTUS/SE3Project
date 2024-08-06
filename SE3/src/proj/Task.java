@@ -58,12 +58,12 @@ public class Task
 	
 	public static boolean isValidTitle(String title) 
 	{
-		return title.length() > 3 && title.length() < 21;
+		return title.length() > 3 && title.length() < 21 && title.matches("^[^\\d]*$");
 	}
 	
 	public static boolean isValidDescription(String description) 
 	{
-		return description.length() > 3 && description.length() < 41;
+		return description.length() > 3 && description.length() < 41 ;
 	}
 	
 	public static boolean isValidDate(LocalDate dueDate) 
