@@ -1,11 +1,11 @@
 package Exceptions;
 
 @SuppressWarnings("serial")
-public class K_Exception extends Exception 
+public class TaskExceptionHandler extends Exception 
 {
 	String message;
 	
-	public K_Exception(String e) 
+	public TaskExceptionHandler(String e) 
 	{
 		message = e;
 	}

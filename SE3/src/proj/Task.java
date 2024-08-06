@@ -2,7 +2,7 @@ package proj;
 
 
 import java.time.LocalDate;
-import Exceptions.K_Exception;
+import Exceptions.TaskExceptionHandler;
 
 public class Task 
 {
@@ -12,7 +12,7 @@ public class Task
 	private LocalDate duedate;
 	
 	
-	public Task(String title, String description,int prioritylevel,LocalDate duedate) throws K_Exception
+	public Task(String title, String description,int prioritylevel,LocalDate duedate) throws TaskExceptionHandler
 	{
 		this.title = title;
 		this.description = description;

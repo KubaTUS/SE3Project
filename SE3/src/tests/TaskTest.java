@@ -163,13 +163,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #9
 	 * Objective: Verify Valid description returns true.
-	 * Input: String description = "Visit Jason and Samantha in the hospital"  (40 Chars = MAX CHARS)
+	 * Input: String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJj"  (40 Chars = MAX CHARS)
 	 * Output: True
 	 */
     
     public void testValidDescription3() {
     	try {
-    	String description = "Visit Jason and Samantha in the hospital";
+    	String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJj";
     	assertTrue(Task.isValidDescription(description));
     	} catch (Exception e) 
     	{

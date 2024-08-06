@@ -3,7 +3,7 @@ package proj;
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.Comparator;
-import Exceptions.K_Exception;
+import Exceptions.TaskExceptionHandler;
 
 public class MainMenu 
 {
@@ -61,7 +61,7 @@ public class MainMenu
         sc.close();
     }
 
-    private void createTask() throws K_Exception 
+    private void createTask() throws TaskExceptionHandler
     {
     	System.out.println("");
         System.out.println("Creating a new task:");
@@ -214,7 +214,7 @@ public class MainMenu
         }
     }
 
-    private void updateTask() throws K_Exception 
+    private void updateTask() throws TaskExceptionHandler
     {
         System.out.println("\nUpdating a task:");
         listTasks();
