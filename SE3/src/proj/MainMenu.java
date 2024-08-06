@@ -20,6 +20,7 @@ public class MainMenu
 
     public void displayMenu() 
     {
+    	// Displays menu
         int choice = 0;
         while (choice != 5) {
             System.out.println("\nMain Menu:");
