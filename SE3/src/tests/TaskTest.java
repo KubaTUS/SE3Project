@@ -11,13 +11,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #1
 	 * Objective: Verify Valid Title returns true.
-	 * Input: String title = "Read" (4 CHARS = MIN CHARS)
+	 * Input: String title = "AaAa" (4 CHARS = MIN CHARS)
 	 * Output: True
 	 */
 	
     public void testValidTitle() {
     	try {
-    	String title = "Read";
+    	String title = "AaAa";
     	assertTrue(Task.isValidTitle(title));
     	} catch (Exception e) 
     	{
@@ -30,13 +30,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #2
 	 * Objective: Verify Valid Title returns true.
-	 * Input: String title = "Go Swimming" (11 CHARS = IN-RANGE)
+	 * Input: String title = "AaAaBbBb" (8 CHARS = IN-RANGE)
 	 * Output: True
 	 */
 	
     public void testValidTitle2() {
     	try {
-    	String title = "Read";
+    	String title = "AaAaBbBb";
     	assertTrue(Task.isValidTitle(title));
     	} catch (Exception e) 
     	{
@@ -49,13 +49,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #3
 	 * Objective: Verify Valid Title returns true.
-	 * Input: String title = "Finish Harry Potter." (20 CHARS = MAX CHARS)
+	 * Input: String title = "AaAaBbBbCcCcDdDdEeEe" (20 CHARS = MAX CHARS)
 	 * Output: True
 	 */
 	
     public void testValidTitle3() {
     	try {
-    	String title = "Finish Harry Potter.";
+    	String title = "AaAaBbBbCcCcDdDdEeEe";
     	assertTrue(Task.isValidTitle(title));
     	} catch (Exception e) 
     	{
@@ -68,13 +68,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #4
 	 * Objective: Verify Invalid title returns false.
-	 * Input: String title = "AAA" (3 Chars < MIN CHARS. EDGE TEST CASE.)
+	 * Input: String title = "AaA" (3 Chars < MIN CHARS. EDGE TEST CASE.)
 	 * Output: False
 	 */
 	
     public void testInvalidTitle() {
     	try {
-    	String title = "AAA";
+    	String title = "AaA";
     	assertFalse(Task.isValidTitle(title));
     	} catch (Exception e) 
     	{
@@ -87,13 +87,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #5
 	 * Objective: Verify Invalid title returns false.
-	 * Input: String title = "Go buy some footballs"  (21 Chars > MAX CHARS. EDGE TEST CASE.)
+	 * Input: String title = "AaAaBbBbCcCcDdDdEeEeF"  (21 Chars > MAX CHARS. EDGE TEST CASE.)
 	 * Output: False
 	 */
 	
     public void testInvalidTitle2() {
     	try {
-    	String title = "Go buy some footballs";
+    	String title = "AaAaBbBbCcCcDdDdEeEeF";
     	assertFalse(Task.isValidTitle(title));
     	} catch (Exception e) 
     	{
@@ -124,13 +124,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #7
 	 * Objective: Verify Valid description returns true.
-	 * Input: String description = "Blue"  (4 Chars = MIN CHARS)
+	 * Input: String description = "AaAa"  (4 Chars = MIN CHARS)
 	 * Output: True
 	 */
     
     public void testValidDescription1() {
     	try {
-    	String description = "Blue";
+    	String description = "AaAa";
     	assertTrue(Task.isValidDescription(description));
     	} catch (Exception e) 
     	{
@@ -144,13 +144,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #8
 	 * Objective: Verify Valid description returns true.
-	 * Input: String description = "52 Dublin Street, collect package"  (33 Chars = IN-RANGE CHARS)
+	 * Input: String description = "AaAaBbBbCcCc"  (12 Chars = IN-RANGE CHARS)
 	 * Output: True
 	 */
     
     public void testValidDescription2() {
     	try {
-    	String description = "52 Dublin Street, collect package";
+    	String description = "AaAaBbBbCcCc";
     	assertTrue(Task.isValidDescription(description));
     	} catch (Exception e) 
     	{

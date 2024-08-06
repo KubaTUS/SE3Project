@@ -97,7 +97,8 @@ public class MainMenu
             {
                 System.out.print("Enter description: ");
                 description = sc.nextLine();
-                if (!Task.isValidDescription(description)) {
+                if (!Task.isValidDescription(description)) 
+                {
                     throw new IllegalArgumentException("Description must be between 4 and 40 characters.");
                 }
                 break;
