@@ -66,12 +66,12 @@ public class Task
 		return description.length() > 3 && description.length() < 41;
 	}
 	
-	public static boolean isValidDate(LocalDate duedate) 
+	public static boolean isValidDate(LocalDate dueDate) 
 	{
-		LocalDate currentDate = LocalDate.now();
-        LocalDate maxDate = currentDate.plusYears(150);
-        
-        return !duedate.isBefore(currentDate.minusDays(1)) && !duedate.isAfter(maxDate);
+	    LocalDate currentDate = LocalDate.now();
+	    LocalDate maxDate = currentDate.plusYears(150);
+	    
+	    return !dueDate.isBefore(currentDate) && !dueDate.isAfter(maxDate);
 	}
 		
 	public static boolean isValidPriorityLevel(int prioritylevel) 

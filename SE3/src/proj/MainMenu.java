@@ -137,7 +137,7 @@ public class MainMenu {
                     dueDate = LocalDate.parse(sc.next());
                     if (!Task.isValidDate(dueDate)) 
                     {
-                        throw new IllegalArgumentException("Due date must be after today and within 150 years.");
+                        throw new IllegalArgumentException("Due date must be between today and 150 years.");
                     }
                     break;
                 } 
@@ -235,7 +235,7 @@ public class MainMenu {
                         System.out.print("Enter new due date (YYYY-MM-DD): ");
                         dueDate = LocalDate.parse(sc.next());
                         if (!Task.isValidDate(dueDate)) {
-                            throw new IllegalArgumentException("Due date must be after today and within 150 years.");
+                            throw new IllegalArgumentException("Due date must be between today and 150 years.");
                         }
                         break;
                     } catch (Exception e) {
