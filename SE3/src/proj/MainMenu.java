@@ -20,15 +20,15 @@ public class MainMenu
 
     public void displayMenu() 
     {
-    	// Displays menu
         int choice = 0;
-        while (choice != 5) {
+        while (choice != 6) { // Menu will keep looping until choice 6 is selected (Exit)
             System.out.println("\nMain Menu:");
             System.out.println("1. Create Task");
             System.out.println("2. List Tasks");
             System.out.println("3. Update a Task");
             System.out.println("4. Delete a Task");
-            System.out.println("5. Exit");
+            System.out.println("5. Mark Task as Complete"); // New option
+            System.out.println("6. Exit"); // Updated exit option
 
             System.out.print("Enter your choice: ");
             try 
@@ -50,16 +50,19 @@ public class MainMenu
                         deleteTask();
                         break;
                     case 5:
+                        markTaskAsComplete(); // Handle task completion
+                        break;
+                    case 6:
                         System.out.println("Exiting...");
                         break;
                     default:
-                        System.out.println("Invalid choice. Please enter a number between 1 and 5.");
+                        System.out.println("Invalid choice. Please enter a number between 1 and 6.");
                 }
             } 
             catch (Exception e) 
             {
                 System.out.println("Invalid input. Please enter a number.");
-                sc.nextLine();
+                sc.nextLine(); // Clear the buffer
             }
         }
         sc.close();
@@ -364,6 +367,33 @@ public class MainMenu
         sc.nextLine();
         taskManager.deleteTask(index);
     }
+    
+    private void markTaskAsComplete() 
+    {
+        System.out.println("\nMarking a task as complete:");
+        listTasks();
+        System.out.print("Enter the index of the task to mark as complete: ");
+        try {
+            int index = sc.nextInt() - 1;
+            sc.nextLine();
+            if (index >= 0 && index < taskManager.tasks.size()) 
+            {
+                Task taskToComplete = taskManager.tasks.get(index);
+                taskToComplete.setTitle(taskToComplete.getTitle() + " - COMPLETED");
+                System.out.println("Task marked as complete.");
+            } 
+            else 
+            {
+                System.out.println("Invalid task index.");
+            }
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Invalid input. Please enter a valid task index.");
+            sc.nextLine();
+        }
+    }
+
 
     public static void main(String[] args)
     {
