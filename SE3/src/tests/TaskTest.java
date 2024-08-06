@@ -182,13 +182,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #10
 	 * Objective: Verify Invalid description returns false.
-	 * Input: String description = "Dee"  (3 CHARS < MIN CHARS. EDGE TEST CASE)
+	 * Input: String description = "AaA"  (3 CHARS < MIN CHARS. EDGE TEST CASE)
 	 * Output: False
 	 */
     
     public void testInvalidDescription1() {
     	try {
-    	String description = "Dee";
+    	String description = "AaA";
     	assertFalse(Task.isValidDescription(description));
     	} catch (Exception e) 
     	{
@@ -201,13 +201,13 @@ public class TaskTest extends TestCase
     /**
 	 * Test #11
 	 * Objective: Verify Invalid description returns false.
-	 * Input: String description = "Pick Samantha and Jason up from Barcelona"  (41 CHARS > MAX CHARS. EDGE TEST CASE)
+	 * Input: String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJjK"  (41 CHARS > MAX CHARS. EDGE TEST CASE)
 	 * Output: False
 	 */
     
     public void testInvalidDescription2() {
     	try {
-    	String description = "Pick Samantha and Jason up from the hospital";
+    	String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJjK";
     	assertFalse(Task.isValidDescription(description));
     	} catch (Exception e) 
     	{
@@ -290,7 +290,7 @@ public class TaskTest extends TestCase
         /**
       	 * Test #16
       	 * Objective: Verify Invalid due date returns false
-      	 * Input: LocalDate duedate = currentDate.minusDays(1);  (DUE DATE IS BEFORE THE MINIMUM DATE. EDGE TEST CASE)
+      	 * Input: LocalDate duedate = currentDate.minusDays(2);  (DUE DATE IS BEFORE THE MINIMUM DATE. EDGE TEST CASE)
       	 * Output: False
       	 */
           
