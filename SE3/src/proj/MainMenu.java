@@ -27,10 +27,12 @@ public class MainMenu
             System.out.println("5. Exit");
 
             System.out.print("Enter your choice: ");
-            try {
+            try 
+            {
                 choice = sc.nextInt();
                 sc.nextLine();
-                switch (choice) {
+                switch (choice) 
+                {
                     case 1:
                         createTask();
                         break;
@@ -49,7 +51,8 @@ public class MainMenu
                     default:
                         System.out.println("Invalid choice. Please enter a number between 1 and 5.");
                 }
-            } catch (Exception e) 
+            } 
+            catch (Exception e) 
             {
                 System.out.println("Invalid input. Please enter a number.");
                 sc.nextLine();
@@ -149,7 +152,8 @@ public class MainMenu
     private void listTasks() 
     {
         System.out.println("\nListing all tasks:");
-        if (taskManager.tasks.isEmpty()) {
+        if (taskManager.tasks.isEmpty()) 
+        {
             System.out.println("No tasks found.");
             return;
         }
@@ -225,11 +229,14 @@ public class MainMenu
                 {
                     System.out.print("Enter new title: ");
                     title = sc.nextLine();
-                    if (!Task.isValidTitle(title)) {
+                    if (!Task.isValidTitle(title)) 
+                    {
                         throw new IllegalArgumentException("Title must be between 4 and 20 characters.");
                     }
                     break;
-                } catch (Exception e) {
+                } 
+                catch (Exception e) 
+                {
                     System.out.println("Invalid input: " + e.getMessage());
                 }
             }
@@ -240,7 +247,8 @@ public class MainMenu
                 {
                     System.out.print("Enter new description: ");
                     description = sc.nextLine();
-                    if (!Task.isValidDescription(description)) {
+                    if (!Task.isValidDescription(description)) 
+                    {
                         throw new IllegalArgumentException("Description must be between 4 and 40 characters.");
                     }
                     break;
@@ -257,7 +265,8 @@ public class MainMenu
                 {
                     System.out.print("Enter new priority level (1-3): ");
                     priorityLevel = sc.nextInt();
-                    if (!Task.isValidPriorityLevel(priorityLevel)) {
+                    if (!Task.isValidPriorityLevel(priorityLevel)) 
+                    {
                         throw new IllegalArgumentException("Priority level must be between 1 and 3.");
                     }
                     break;
