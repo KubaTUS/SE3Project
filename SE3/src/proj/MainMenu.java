@@ -63,6 +63,7 @@ public class MainMenu
 
     private void createTask() throws K_Exception 
     {
+    	System.out.println("");
         System.out.println("Creating a new task:");
         String title = "";
         String description = "";
@@ -151,13 +152,13 @@ public class MainMenu
 
     private void listTasks() 
     {
-        System.out.println("\nListing all tasks:");
         if (taskManager.tasks.isEmpty()) 
         {
             System.out.println("No tasks found.");
             return;
         }
 
+        System.out.println("");
         System.out.println("Sort by:");
         System.out.println("1. Highest Priority Level");
         System.out.println("2. Soonest Due Date");
@@ -168,22 +169,26 @@ public class MainMenu
         {
             try 
             {
+            	System.out.println("");
                 System.out.print("Enter your choice: ");
                 sortChoice = sc.nextInt();
                 sc.nextLine();
 
-                switch (sortChoice) {
+                switch (sortChoice) 
+                {
                     case 1:
+                    	System.out.println("");
                         taskManager.tasks.sort(Comparator.comparingInt(Task::getPrioritylevel).reversed());
                         break;
                     case 2:
+                    	System.out.println("");
                         taskManager.tasks.sort(Comparator.comparing(Task::getDuedate));
                         break;
                     case 3:
-                        // No sorting
+                        // Returning results without filter.
                         break;
                     default:
-                        System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+                        System.out.println("Invalid input. Please enter a number between 1 and 3.");
                         continue;
                 }
                 break;
