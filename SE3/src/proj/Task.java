@@ -14,10 +14,23 @@ public class Task
 	
 	public Task(String title, String description,int prioritylevel,LocalDate duedate) throws TaskExceptionHandler
 	{
-		this.title = title;
-		this.description = description;
-		this.prioritylevel = prioritylevel;
-		this.duedate = duedate;
+	        if (!isValidTitle(title)) {
+	            throw new TaskExceptionHandler("Invalid title");
+	        }
+	        if (!isValidDescription(description)) {
+	            throw new TaskExceptionHandler("Invalid description");
+	        }
+	        if (!isValidPriorityLevel(prioritylevel)) {
+	            throw new TaskExceptionHandler("Invalid priority level");
+	        }
+	        if (!isValidDate(duedate)) {
+	            throw new TaskExceptionHandler("Invalid due date");
+	        }
+	        
+	        this.title = title;
+	        this.description = description;
+	        this.prioritylevel = prioritylevel;
+	        this.duedate = duedate;
 	}
 	
 	public Task()
@@ -58,7 +71,7 @@ public class Task
 	
 	public static boolean isValidTitle(String title) 
 	{
-		return title.length() > 3 && title.length() < 21 && title.matches("^[^\\d]*$");
+		return title.length() >= 4 && title.length() <= 20 && title.matches("^[A-Za-z ]*$") && title.replaceAll("[^A-Za-z]", "").length() >= 4;
 	}
 	
 	public static boolean isValidDescription(String description) 

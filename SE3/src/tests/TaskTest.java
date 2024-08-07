@@ -1,6 +1,7 @@
 package tests;
 import java.time.LocalDate;
 
+import Exceptions.TaskExceptionHandler;
 import junit.framework.TestCase;
 import proj.Task;
 
@@ -10,38 +11,30 @@ public class TaskTest extends TestCase
 	
     /**
 	 * Test #1
-	 * Objective: Verify Valid Title returns true.
-	 * Input: String title = "AaAa" (4 CHARS = MIN CHARS)
-	 * Output: True
+	 * Objective: Verify Invalid title returns false.
+	 * Input: String title = ""
+	 * Output: False
 	 */
 	
-    public void testValidTitle() {
-    	try {
-    	String title = "AaAa";
-    	assertTrue(Task.isValidTitle(title));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testInvalidTitle1() throws TaskExceptionHandler 
+	{
+    	String title = "";
+    	assertEquals(false, Task.isValidTitle(title));
     }
     
     
     
     /**
 	 * Test #2
-	 * Objective: Verify Valid Title returns true.
-	 * Input: String title = "AaAaBbBb" (8 CHARS = IN-RANGE)
-	 * Output: True
+	 * Objective: Verify Invalid Title returns true.
+	 * Input: String title = "AaA"
+	 * Output: False
 	 */
 	
-    public void testValidTitle2() {
-    	try {
-    	String title = "AaAaBbBb";
-    	assertTrue(Task.isValidTitle(title));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testInvalidTitle2() throws TaskExceptionHandler 
+	{
+    	String title = "AaA";
+    	assertEquals(false, Task.isValidTitle(title));
     }
     
     
@@ -49,73 +42,57 @@ public class TaskTest extends TestCase
     /**
 	 * Test #3
 	 * Objective: Verify Valid Title returns true.
-	 * Input: String title = "AaAaBbBbCcCcDdDdEeEe" (20 CHARS = MAX CHARS)
+	 * Input: String title = "AaAa"
 	 * Output: True
 	 */
 	
-    public void testValidTitle3() {
-    	try {
-    	String title = "AaAaBbBbCcCcDdDdEeEe";
-    	assertTrue(Task.isValidTitle(title));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testValidTitle1() throws TaskExceptionHandler 
+	{
+    	String title = "AaAa";
+    	assertEquals(true, Task.isValidTitle(title));
     }
     
     
     
     /**
 	 * Test #4
-	 * Objective: Verify Invalid title returns false.
-	 * Input: String title = "AaA" (3 Chars < MIN CHARS. EDGE TEST CASE.)
-	 * Output: False
+	 * Objective: Verify Valid title returns true.
+	 * Input: String title = "AaAaBbBb"
+	 * Output: True
 	 */
 	
-    public void testInvalidTitle() {
-    	try {
-    	String title = "AaA";
-    	assertFalse(Task.isValidTitle(title));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testValidTitle2() throws TaskExceptionHandler 
+	{
+    	String title = "AaAaBbBb";
+    	assertEquals(true, Task.isValidTitle(title));
     }
     
     
     
     /**
 	 * Test #5
-	 * Objective: Verify Invalid title returns false.
-	 * Input: String title = "AaAaBbBbCcCcDdDdEeEeF"  (21 Chars > MAX CHARS. EDGE TEST CASE.)
-	 * Output: False
+	 * Objective: Verify Valid title returns true.
+	 * Input: String title = "AaAaBbBbCcCcDdDdEeEe"
+	 * Output: True
 	 */
 	
-    public void testInvalidTitle2() {
-    	try {
-    	String title = "AaAaBbBbCcCcDdDdEeEeF";
-    	assertFalse(Task.isValidTitle(title));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testValidTitle3() throws TaskExceptionHandler 
+	{
+    	String title = "AaAaBbBbCcCcDdDdEeEe";
+    	assertEquals(true, Task.isValidTitle(title));
     }
     
     /**
 	 * Test #6
 	 * Objective: Verify Invalid title returns false.
-	 * Input: String title = ""  (NULL CHARS)
+	 * Input: String title = "AaAaBbBbCcCcDdDdEeEeF"
 	 * Output: False
 	 */
 	
-    public void testInvalidTitle3() {
-    	try {
-    	String title = "";
-    	assertFalse(Task.isValidTitle(title));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testValidTitle4() throws TaskExceptionHandler 
+	{
+    	String title = "AaAaBbBbCcCcDdDdEeEeF";
+    	assertEquals(false, Task.isValidTitle(title));
     }
     
 	
@@ -123,19 +100,15 @@ public class TaskTest extends TestCase
 	
     /**
 	 * Test #7
-	 * Objective: Verify Valid description returns true.
-	 * Input: String description = "AaAa"  (4 Chars = MIN CHARS)
-	 * Output: True
+	 * Objective: Verify Invalid description returns false.
+	 * Input: String description = ""
+	 * Output: False
 	 */
     
-    public void testValidDescription1() {
-    	try {
-    	String description = "AaAa";
-    	assertTrue(Task.isValidDescription(description));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testInvalidDescription1() throws TaskExceptionHandler 
+	{
+    	String description = "";
+    	assertEquals(false, Task.isValidDescription(description));
     }
     
     
@@ -143,19 +116,15 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #8
-	 * Objective: Verify Valid description returns true.
-	 * Input: String description = "AaAaBbBbCcCc"  (12 Chars = IN-RANGE CHARS)
-	 * Output: True
+	 * Objective: Verify Invalid description returns false.
+	 * Input: String description = "AaA"
+	 * Output: False
 	 */
     
-    public void testValidDescription2() {
-    	try {
-    	String description = "AaAaBbBbCcCc";
-    	assertTrue(Task.isValidDescription(description));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testInvalidDescription2() throws TaskExceptionHandler 
+	{
+    	String description = "AaA";
+    	assertEquals(false, Task.isValidDescription(description));
     }
     
     
@@ -163,56 +132,44 @@ public class TaskTest extends TestCase
     /**
 	 * Test #9
 	 * Objective: Verify Valid description returns true.
-	 * Input: String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJj"  (40 Chars = MAX CHARS)
+	 * Input: String description = "AaAa"
 	 * Output: True
 	 */
     
-    public void testValidDescription3() {
-    	try {
-    	String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJj";
-    	assertTrue(Task.isValidDescription(description));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testValidDescription1() throws TaskExceptionHandler 
+	{
+    	String description = "AaAa";
+    	assertEquals(true, Task.isValidDescription(description));
     }
     
     
     
     /**
 	 * Test #10
-	 * Objective: Verify Invalid description returns false.
-	 * Input: String description = "AaA"  (3 CHARS < MIN CHARS. EDGE TEST CASE)
-	 * Output: False
+	 * Objective: Verify Valid description returns true.
+	 * Input: String description = "AaAaBbBb"
+	 * Output: True
 	 */
     
-    public void testInvalidDescription1() {
-    	try {
-    	String description = "AaA";
-    	assertFalse(Task.isValidDescription(description));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testValidDescription2() throws TaskExceptionHandler 
+	{
+    	String description = "AaAaBbBb";
+    	assertEquals(true, Task.isValidDescription(description));
     }
     
     
     
     /**
 	 * Test #11
-	 * Objective: Verify Invalid description returns false.
-	 * Input: String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJjK"  (41 CHARS > MAX CHARS. EDGE TEST CASE)
-	 * Output: False
+	 * Objective: Verify Valid description returns true.
+	 * Input: String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJj"
+	 * Output: True
 	 */
     
-    public void testInvalidDescription2() {
-    	try {
-    	String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJjK";
-    	assertFalse(Task.isValidDescription(description));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testValidDescription3() throws TaskExceptionHandler 
+	{
+    	String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJj";
+    	assertEquals(true, Task.isValidDescription(description));
     }
     
     /**
@@ -222,190 +179,209 @@ public class TaskTest extends TestCase
 	 * Output: False
 	 */
 	
-    public void testInvalidDescription3() {
-    	try {
-    	String description = "";
-    	assertFalse(Task.isValidDescription(description));
-    	} catch (Exception e) 
-    	{
-        fail("Exception NOT expected.");
-    	}
+	public void testInvalidDescription3() throws TaskExceptionHandler 
+	{
+    	String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJjK";
+    	assertEquals(false, Task.isValidDescription(description));
     }
     
     /**
  	 * Test #13
- 	 * Objective: Verify Valid due date returns true
- 	 * Input: LocalDate duedate = LocalDate.now();  (DATE IS TODAY = MINIMUM)
+ 	 * Objective: Verify Invalid due date returns false
+ 	 * Input: LocalDate duedate = LocalDate.now().minusDays(1);
  	 * Output: True
  	 */
      
-     public void testValidDueDate1() {
-     	try {
-     	LocalDate duedate = LocalDate.now();
-     	assertTrue(Task.isValidDate(duedate));
-     	} catch (Exception e) 
-     	{
-         fail("Exception NOT expected.");
-     	}
-     }
+	public void testInvalidDueDate1() throws TaskExceptionHandler 
+	{
+		LocalDate duedate = LocalDate.now().minusDays(1);
+    	assertEquals(false, Task.isValidDate(duedate));
+    }
      
      
      
      /**
   	 * Test #14
   	 * Objective: Verify Valid due date returns true
-  	 * Input: LocalDate duedate = currentDate.plusYears(3);  (DATE IS IN THE FUTURE = IN-RANGE)
+  	 * Input: LocalDate duedate = LocalDate.now();
   	 * Output: True
   	 */
       
-      public void testValidDueDate2() {
-      	try {
-      	LocalDate currentDate = LocalDate.now();
-      	LocalDate duedate = currentDate.plusYears(3);
-      	assertTrue(Task.isValidDate(duedate));
-      	} catch (Exception e) 
-      	{
-          fail("Exception NOT expected.");
-      	}
-      }
+	public void testValidDueDate1() throws TaskExceptionHandler 
+	{
+		LocalDate duedate = LocalDate.now();
+    	assertEquals(true, Task.isValidDate(duedate));
+    }
       
-      /**
-    	 * Test #15
-    	 * Objective: Verify Valid due date returns true
-    	 * Input: LocalDate duedate = currentDate.plusYears(150);  (DATE IS CURRENT DATE + 150 YEARS = MAX DATE)
-    	 * Output: True
-    	 */
+    /**
+ 	 * Test #15
+ 	 * Objective: Verify Valid due date returns true
+ 	 * Input: LocalDate duedate = LocalDate.now().plusDays(1);
+ 	 * Output: True
+ 	 */
         
-        public void testValidDueDate3() {
-        	try {
-        	LocalDate currentDate = LocalDate.now();
-            LocalDate duedate = currentDate.plusYears(150);
-            assertTrue(Task.isValidDate(duedate));
-        	} catch (Exception e) 
-        	{
-            fail("Exception NOT expected.");
-        	}
-        }
+	public void testValidDueDate2() throws TaskExceptionHandler 
+	{
+		LocalDate duedate = LocalDate.now().plusDays(1);
+    	assertEquals(true, Task.isValidDate(duedate));
+    }
         
-        /**
-      	 * Test #16
-      	 * Objective: Verify Invalid due date returns false
-      	 * Input: LocalDate duedate = currentDate.minusDays(2);  (DUE DATE IS BEFORE THE MINIMUM DATE. EDGE TEST CASE)
-      	 * Output: False
-      	 */
+    /**
+ 	 * Test #16
+ 	 * Objective: Verify Valid due date returns true
+ 	 * Input: LocalDate duedate = LocalDate.now().plusYears(150);
+ 	 * Output: True
+ 	 */
           
-          public void testInvalidDueDate1() {
-          	try {
-          	LocalDate currentDate = LocalDate.now();
-          	LocalDate duedate = currentDate.minusDays(2);
-          	assertFalse(Task.isValidDate(duedate));
-          	} catch (Exception e) 
-          	{
-              fail("Exception NOT expected.");
-          	}
-          }
-          
-          /**
-        	 * Test #17
-        	 * Objective: Verify Invalid due date returns false
-        	 * Input: LocalDate duedate = currentDate.plusYears(151);  (DUE DATE IS PAST THE MAXIMUM DATE. EDGE TEST CASE)
-        	 * Output: False
-        	 */
-            
-            public void testInvalidDueDate2() {
-            	try {
-            	LocalDate currentDate = LocalDate.now();
-            	LocalDate duedate = currentDate.plusYears(150).plusDays(1);
-            	assertFalse(Task.isValidDate(duedate));
-            	} catch (Exception e) 
-            	{
-                fail("Exception NOT expected.");
-            	}
-            }
-            
-            
-            /**
-          	 * Test #18
-          	 * Objective: Verify Valid Priority Level returns true.
-          	 * Input: int prioritylevel = 1;  (PRIORITY LEVEL = MIN NUM)
-          	 * Output: True
-          	 */
-              
-              public void testValidPriorityLevel1() {
-              	try {
-              	int prioritylevel = 1;
-              	assertTrue(Task.isValidPriorityLevel(prioritylevel));
-              	} catch (Exception e) 
-              	{
-                  fail("Exception NOT expected.");
-              	}
-              }
-              
-              /**
-            	 * Test #19
-            	 * Objective: Verify Valid Priority Level returns true.
-            	 * Input: int prioritylevel = 2;  (PRIORITY LEVEL = IN-RANGE)
-            	 * Output: True
-            	 */
-                
-                public void testValidPriorityLevel2() {
-                	try {
-                	int prioritylevel = 2;
-                	assertTrue(Task.isValidPriorityLevel(prioritylevel));
-                	} catch (Exception e) 
-                	{
-                    fail("Exception NOT expected.");
-                	}
-                }
-                
-                /**
-              	 * Test #20
-              	 * Objective: Verify Valid Priority Level returns true.
-              	 * Input: int prioritylevel = 3;  (PRIORITY LEVEL = MAX NUM)
-              	 * Output: True
-              	 */
-                  
-                  public void testValidPriorityLevel3() {
-                  	try {
-                  	int prioritylevel = 3;
-                  	assertTrue(Task.isValidPriorityLevel(prioritylevel));
-                  	} catch (Exception e) 
-                  	{
-                      fail("Exception NOT expected.");
-                  	}
-                  }
-                  
-                  /**
-                	 * Test #21
-                	 * Objective: Verify Invalid Priority Level returns false.
-                	 * Input: int prioritylevel = 0;  (PRIORITY LEVEL = BELOW MINIMUM NUM. EDGE TEST CASE)
-                	 * Output: True
-                	 */
-                    
-                    public void testInvalidPriorityLevel1() {
-                    	try {
-                    	int prioritylevel = 0;
-                    	assertFalse(Task.isValidPriorityLevel(prioritylevel));
-                    	} catch (Exception e) 
-                    	{
-                        fail("Exception NOT expected.");
-                    	}
-                    }
-                    
-                    /**
-                  	 * Test #22
-                  	 * Objective: Verify Invalid Priority Level returns false.
-                  	 * Input: int prioritylevel = 4;  (PRIORITY LEVEL = ABOVE MAXIMUM NUM. EDGE TEST CASE)
-                  	 * Output: True
-                  	 */
-                      
-                      public void testInvalidPriorityLevel2() {
-                      	try {
-                      	int prioritylevel = 4;
-                      	assertFalse(Task.isValidPriorityLevel(prioritylevel));
-                      	} catch (Exception e) 
-                      	{
-                          fail("Exception NOT expected.");
-                      	}
-                      }         
+	public void testValidDueDate3() throws TaskExceptionHandler 
+	{
+		LocalDate duedate = LocalDate.now().plusYears(150);
+    	assertEquals(true, Task.isValidDate(duedate));
+    }
+	
+    /**
+ 	 * Test #17
+ 	 * Objective: Verify Invalid due date returns false
+ 	 * Input: LocalDate duedate = LocalDate.now().plusYears(150).plusDays(1);
+ 	 * Output: True
+ 	 */
+	
+	public void testInvalidDueDate2() throws TaskExceptionHandler 
+	{
+		LocalDate duedate = LocalDate.now().plusYears(150).plusDays(1);
+    	assertEquals(false, Task.isValidDate(duedate));
+    }
+	
+	
+    /**
+ 	 * Test #18
+ 	 * Objective: Verify Invalid due date returns false.
+ 	 * Input: int num = 0;
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidPriorityLevel1() throws TaskExceptionHandler 
+	{
+		int num = 0;
+		assertEquals(false, Task.isValidPriorityLevel(num));
+    }
+	
+    /**
+ 	 * Test #19
+ 	 * Objective: Verify Valid Priority Level returns true.
+ 	 * Input: int num = 1;
+ 	 * Output: True
+ 	 */
+	
+	public void testValidPriorityLevel1() throws TaskExceptionHandler 
+	{
+		int num = 1;
+		assertEquals(true, Task.isValidPriorityLevel(num));
+    }
+	
+    /**
+ 	 * Test #20
+ 	 * Objective: Verify Valid Priority Level returns true.
+ 	 * Input: int num = 2;
+ 	 * Output: True
+ 	 */
+	
+	public void testValidPriorityLevel2() throws TaskExceptionHandler 
+	{
+		int num = 2;
+		assertEquals(true, Task.isValidPriorityLevel(num));
+    }
+	
+    /**
+ 	 * Test #21
+ 	 * Objective: Verify Valid Priority Level returns true.
+ 	 * Input: int num = 3;
+ 	 * Output: True
+ 	 */
+	
+	public void testValidPriorityLevel3() throws TaskExceptionHandler 
+	{
+		int num = 3;
+		assertEquals(true, Task.isValidPriorityLevel(num));
+    }
+	
+    /**
+ 	 * Test #22
+ 	 * Objective: Verify Invalid Priority Level returns false.
+ 	 * Input: int num = 4;
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidPriorityLevel2() throws TaskExceptionHandler 
+	{
+		int num = 4;
+		assertEquals(false, Task.isValidPriorityLevel(num));
+    }
+	
+    /**
+ 	 * Test #23
+ 	 * Objective: Verify Task object can be created with all valid parameters.
+ 	 * Input: Task t1 = new Task("Title","Description",2,2029-01-01);
+ 	 * Output: False
+ 	 */
+	
+	public void testValidObject1() throws TaskExceptionHandler 
+	{
+		LocalDate dueDate = LocalDate.of(2029, 1, 1);
+		Task task = new Task("title", "description", 2, dueDate);
+		assertNotNull(task);
+    }
+	
+    /**
+ 	 * Test #24
+ 	 * Objective: Verify Title containing an integer returns false.
+ 	 * Input: title = "aAaA1"
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidTitle3() throws TaskExceptionHandler 
+	{
+		String title = "AaAa1";
+		assertEquals(false, Task.isValidTitle(title));
+    }
+	
+    /**
+ 	 * Test #25
+ 	 * Objective: Verify Title containing a symbol returns false.
+ 	 * Input: title = "aAaA*"
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidTitle4() throws TaskExceptionHandler 
+	{
+		String title = "AaAa*";
+		assertEquals(false, Task.isValidTitle(title));
+    }
+	
+    /**
+ 	 * Test #26
+ 	 * Objective: Verify Priority Level containing a symbol returns false.
+ 	 * Input: char symbol = "*"
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidPriorityLevel3() throws TaskExceptionHandler 
+	{
+		char symbol = '*';
+		assertEquals(false, Task.isValidPriorityLevel(symbol));
+    }
+	
+    /**
+ 	 * Test #27
+ 	 * Objective: Verify Priority Level containing a character returns false.
+ 	 * Input: char chara = "A"
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidTitle5() throws TaskExceptionHandler 
+	{
+		char chara = 'A';
+		assertEquals(false, Task.isValidPriorityLevel(chara));
+    }
+	
 }
