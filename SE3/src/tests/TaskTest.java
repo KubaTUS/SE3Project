@@ -18,7 +18,9 @@ public class TaskTest extends TestCase
 	
 	public void testInvalidTitle1() throws TaskExceptionHandler 
 	{
-    	String title = "";
+		Task t1 = new Task();
+		t1.setTitle("");
+		String title = t1.getTitle();
     	assertEquals(false, Task.isValidTitle(title));
     }
     
@@ -33,7 +35,9 @@ public class TaskTest extends TestCase
 	
 	public void testInvalidTitle2() throws TaskExceptionHandler 
 	{
-    	String title = "AaA";
+		Task t1 = new Task();
+		t1.setTitle("AaA");
+		String title = t1.getTitle();
     	assertEquals(false, Task.isValidTitle(title));
     }
     
@@ -48,7 +52,9 @@ public class TaskTest extends TestCase
 	
 	public void testValidTitle1() throws TaskExceptionHandler 
 	{
-    	String title = "AaAa";
+		Task t1 = new Task();
+		t1.setTitle("AaAa");
+		String title = t1.getTitle();
     	assertEquals(true, Task.isValidTitle(title));
     }
     
@@ -63,7 +69,9 @@ public class TaskTest extends TestCase
 	
 	public void testValidTitle2() throws TaskExceptionHandler 
 	{
-    	String title = "AaAaBbBb";
+		Task t1 = new Task();
+		t1.setTitle("AaAaBbBb");
+		String title = t1.getTitle();
     	assertEquals(true, Task.isValidTitle(title));
     }
     
@@ -78,7 +86,9 @@ public class TaskTest extends TestCase
 	
 	public void testValidTitle3() throws TaskExceptionHandler 
 	{
-    	String title = "AaAaBbBbCcCcDdDdEeEe";
+		Task t1 = new Task();
+		t1.setTitle("AaAaBbBbCcCcDdDdEeEe");
+		String title = t1.getTitle();
     	assertEquals(true, Task.isValidTitle(title));
     }
     
@@ -91,7 +101,9 @@ public class TaskTest extends TestCase
 	
 	public void testValidTitle4() throws TaskExceptionHandler 
 	{
-    	String title = "AaAaBbBbCcCcDdDdEeEeF";
+		Task t1 = new Task();
+		t1.setTitle("AaAaBbBbCcCcDdDdEeEeF");
+		String title = t1.getTitle();
     	assertEquals(false, Task.isValidTitle(title));
     }
     
@@ -107,7 +119,9 @@ public class TaskTest extends TestCase
     
 	public void testInvalidDescription1() throws TaskExceptionHandler 
 	{
-    	String description = "";
+		Task t1 = new Task();
+		t1.setDescription("");
+		String description = t1.getDescription();
     	assertEquals(false, Task.isValidDescription(description));
     }
     
@@ -123,7 +137,9 @@ public class TaskTest extends TestCase
     
 	public void testInvalidDescription2() throws TaskExceptionHandler 
 	{
-    	String description = "AaA";
+		Task t1 = new Task();
+		t1.setDescription("AaA");
+		String description = t1.getDescription();
     	assertEquals(false, Task.isValidDescription(description));
     }
     
@@ -138,7 +154,9 @@ public class TaskTest extends TestCase
     
 	public void testValidDescription1() throws TaskExceptionHandler 
 	{
-    	String description = "AaAa";
+		Task t1 = new Task();
+		t1.setDescription("AaAa");
+		String description = t1.getDescription();
     	assertEquals(true, Task.isValidDescription(description));
     }
     
@@ -153,7 +171,9 @@ public class TaskTest extends TestCase
     
 	public void testValidDescription2() throws TaskExceptionHandler 
 	{
-    	String description = "AaAaBbBb";
+		Task t1 = new Task();
+		t1.setDescription("AaAaBbBb");
+		String description = t1.getDescription();
     	assertEquals(true, Task.isValidDescription(description));
     }
     
@@ -168,20 +188,24 @@ public class TaskTest extends TestCase
     
 	public void testValidDescription3() throws TaskExceptionHandler 
 	{
-    	String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJj";
+		Task t1 = new Task();
+		t1.setDescription("AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJj");
+		String description = t1.getDescription();
     	assertEquals(true, Task.isValidDescription(description));
     }
     
     /**
 	 * Test #12
 	 * Objective: Verify DESCRIPTION value being 41 characters is not accepted and returns an error message.
-	 * Input: String description = ""  (NULL CHARS)
+	 * Input: String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJjK"
 	 * Output: False
 	 */
 	
 	public void testInvalidDescription3() throws TaskExceptionHandler 
 	{
-    	String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJjK";
+		Task t1 = new Task();
+		t1.setDescription("AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJjK");
+		String description = t1.getDescription();
     	assertEquals(false, Task.isValidDescription(description));
     }
     
@@ -194,8 +218,10 @@ public class TaskTest extends TestCase
      
 	public void testInvalidDueDate1() throws TaskExceptionHandler 
 	{
-		LocalDate duedate = LocalDate.now().minusDays(1);
-    	assertEquals(false, Task.isValidDate(duedate));
+		Task t1 = new Task();
+		t1.setDuedate(LocalDate.now().minusDays(1));
+		LocalDate dueD = t1.getDuedate();
+    	assertEquals(false, Task.isValidDate(dueD));
     }
      
      
@@ -209,8 +235,10 @@ public class TaskTest extends TestCase
       
 	public void testValidDueDate1() throws TaskExceptionHandler 
 	{
-		LocalDate duedate = LocalDate.now();
-    	assertEquals(true, Task.isValidDate(duedate));
+		Task t1 = new Task();
+		t1.setDuedate(LocalDate.now());
+		LocalDate dueD = t1.getDuedate();
+    	assertEquals(true, Task.isValidDate(dueD));
     }
       
     /**
@@ -222,8 +250,10 @@ public class TaskTest extends TestCase
         
 	public void testValidDueDate2() throws TaskExceptionHandler 
 	{
-		LocalDate duedate = LocalDate.now().plusDays(1);
-    	assertEquals(true, Task.isValidDate(duedate));
+		Task t1 = new Task();
+		t1.setDuedate(LocalDate.now().plusDays(1));
+		LocalDate dueD = t1.getDuedate();
+    	assertEquals(true, Task.isValidDate(dueD));
     }
         
     /**
@@ -235,8 +265,10 @@ public class TaskTest extends TestCase
           
 	public void testValidDueDate3() throws TaskExceptionHandler 
 	{
-		LocalDate duedate = LocalDate.now().plusYears(150);
-    	assertEquals(true, Task.isValidDate(duedate));
+		Task t1 = new Task();
+		t1.setDuedate(LocalDate.now().plusYears(150));
+		LocalDate dueD = t1.getDuedate();
+    	assertEquals(true, Task.isValidDate(dueD));
     }
 	
     /**
@@ -248,8 +280,10 @@ public class TaskTest extends TestCase
 	
 	public void testInvalidDueDate2() throws TaskExceptionHandler 
 	{
-		LocalDate duedate = LocalDate.now().plusYears(150).plusDays(1);
-    	assertEquals(false, Task.isValidDate(duedate));
+		Task t1 = new Task();
+		t1.setDuedate(LocalDate.now().plusYears(150).plusDays(1));
+		LocalDate dueD = t1.getDuedate();
+    	assertEquals(false, Task.isValidDate(dueD));
     }
 	
 	
@@ -262,8 +296,10 @@ public class TaskTest extends TestCase
 	
 	public void testInvalidPriorityLevel1() throws TaskExceptionHandler 
 	{
-		int num = 0;
-		assertEquals(false, Task.isValidPriorityLevel(num));
+		Task t1 = new Task();
+		t1.setPrioritylevel(0);
+		int pl = t1.getPrioritylevel();
+    	assertEquals(false, Task.isValidPriorityLevel(pl));
     }
 	
     /**
@@ -275,8 +311,10 @@ public class TaskTest extends TestCase
 	
 	public void testValidPriorityLevel1() throws TaskExceptionHandler 
 	{
-		int num = 1;
-		assertEquals(true, Task.isValidPriorityLevel(num));
+		Task t1 = new Task();
+		t1.setPrioritylevel(1);
+		int pl = t1.getPrioritylevel();
+    	assertEquals(true, Task.isValidPriorityLevel(pl));
     }
 	
     /**
@@ -288,8 +326,10 @@ public class TaskTest extends TestCase
 	
 	public void testValidPriorityLevel2() throws TaskExceptionHandler 
 	{
-		int num = 2;
-		assertEquals(true, Task.isValidPriorityLevel(num));
+		Task t1 = new Task();
+		t1.setPrioritylevel(2);
+		int pl = t1.getPrioritylevel();
+    	assertEquals(true, Task.isValidPriorityLevel(pl));
     }
 	
     /**
@@ -301,8 +341,10 @@ public class TaskTest extends TestCase
 	
 	public void testValidPriorityLevel3() throws TaskExceptionHandler 
 	{
-		int num = 3;
-		assertEquals(true, Task.isValidPriorityLevel(num));
+		Task t1 = new Task();
+		t1.setPrioritylevel(3);
+		int pl = t1.getPrioritylevel();
+    	assertEquals(true, Task.isValidPriorityLevel(pl));
     }
 	
     /**
@@ -314,8 +356,10 @@ public class TaskTest extends TestCase
 	
 	public void testInvalidPriorityLevel2() throws TaskExceptionHandler 
 	{
-		int num = 4;
-		assertEquals(false, Task.isValidPriorityLevel(num));
+		Task t1 = new Task();
+		t1.setPrioritylevel(4);
+		int pl = t1.getPrioritylevel();
+    	assertEquals(false, Task.isValidPriorityLevel(pl));
     }
 	
     /**
@@ -327,9 +371,13 @@ public class TaskTest extends TestCase
 	
 	public void testValidObject1() throws TaskExceptionHandler 
 	{
-		LocalDate dueDate = LocalDate.of(2029, 1, 1);
-		Task task = new Task("title", "description", 2, dueDate);
-		assertNotNull(task);
+		Task t1 = new Task();
+		t1.setTitle("AaAa");
+		t1.setDescription("AaAa");
+		t1.setPrioritylevel(2);
+		t1.setDuedate(LocalDate.now());
+		int pl = t1.getPrioritylevel();
+    	assertEquals(true, Task.isValidObject(t1));
     }
 	
     /**
@@ -341,8 +389,10 @@ public class TaskTest extends TestCase
 	
 	public void testInvalidTitle3() throws TaskExceptionHandler 
 	{
-		String title = "AaAa1";
-		assertEquals(false, Task.isValidTitle(title));
+		Task t1 = new Task();
+		t1.setTitle("aAaA1");
+		String pl = t1.getTitle();
+    	assertEquals(false, Task.isValidTitle(pl));
     }
 	
     /**
@@ -354,8 +404,10 @@ public class TaskTest extends TestCase
 	
 	public void testInvalidTitle4() throws TaskExceptionHandler 
 	{
-		String title = "AaAa*";
-		assertEquals(false, Task.isValidTitle(title));
+		Task t1 = new Task();
+		t1.setTitle("aAaA*");
+		String pl = t1.getTitle();
+    	assertEquals(false, Task.isValidTitle(pl));
     }
 	
     /**
@@ -363,25 +415,13 @@ public class TaskTest extends TestCase
  	 * Objective: Verify Priority Level containing a symbol returns false.
  	 * Input: char symbol = "*"
  	 * Output: False
+ 	 * CAN'T USE OBJECT AS IT DOESN'T TAKE A CHAR.
  	 */
 	
 	public void testInvalidPriorityLevel3() throws TaskExceptionHandler 
 	{
 		char symbol = '*';
 		assertEquals(false, Task.isValidPriorityLevel(symbol));
-    }
-	
-    /**
- 	 * Test #27
- 	 * Objective: Verify Priority Level containing a character returns false.
- 	 * Input: char chara = "A"
- 	 * Output: False
- 	 */
-	
-	public void testInvalidTitle5() throws TaskExceptionHandler 
-	{
-		char chara = 'A';
-		assertEquals(false, Task.isValidPriorityLevel(chara));
     }
 	
 }

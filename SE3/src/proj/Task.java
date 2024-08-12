@@ -91,7 +91,8 @@ public class Task
 	{
 		return prioritylevel > 0 && prioritylevel < 4;
 	}
-
+	
+	
 	public LocalDate getDuedate() {
 		return duedate;
 	}
@@ -99,6 +100,14 @@ public class Task
 	public void setDuedate(LocalDate duedate) {
 		this.duedate = duedate;
 	}
+	
+	public static boolean isValidObject(Task task) 
+	{
+        return isValidTitle(task.getTitle()) &&
+               isValidDescription(task.getDescription()) &&
+               isValidPriorityLevel(task.getPrioritylevel()) &&
+               isValidDate(task.getDuedate());
+    }
 
 
 }
