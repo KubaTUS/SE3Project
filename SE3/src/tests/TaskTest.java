@@ -432,6 +432,18 @@ public class TaskTest extends TestCase
  	 * Output: False
  	 */
 	
+	public void testInvalidPriorityLevel4() {
+		char symbol = 'A';
+		assertEquals(false, Task.isValidPriorityLevel(symbol));
+    }
+	
+    /**
+ 	 * Test #28
+ 	 * Objective: Verify Task cannot be created with an invalid Title value.
+ 	 * Input: title = "" description = "AaAa" priority = 2 duedate = 20/01/2029
+ 	 * Output: False
+ 	 */
+	
 	public void testInvalidObject1() {
         boolean result = true;
         
@@ -447,7 +459,7 @@ public class TaskTest extends TestCase
     }
 	
     /**
- 	 * Test #28
+ 	 * Test #29
  	 * Objective: Verify Task cannot be created with an invalid Description value.
  	 * Input: title = "AaAa" description = "" priority = 2 duedate = 20/01/2029
  	 * Output: False
@@ -468,7 +480,7 @@ public class TaskTest extends TestCase
     }
 	
     /**
- 	 * Test #29
+ 	 * Test #30
  	 * Objective: Verify Task cannot be created with an invalid priority level value.
  	 * Input: title = "AaAa" description = "AaAa" priority = 4 duedate = 20/01/2029
  	 * Output: False
@@ -489,7 +501,7 @@ public class TaskTest extends TestCase
     }
 	
     /**
- 	 * Test #30
+ 	 * Test #31
  	 * Objective: Verify Task cannot be created with an invalid due date value.
  	 * Input: title = "AaAa" description = "AaAa" priority = 2 duedate = 20/01/2019
  	 * Output: False

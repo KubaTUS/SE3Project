@@ -22,7 +22,7 @@ public class TaskManagerTest extends TestCase
     }
     
     /**
- 	 * Test #31
+ 	 * Test #32
  	 * Objective: Verify Tasks sorted by Priority are returned by highest priority.
  	 * Input:
  	 * new Task("Low Priority", "Not Important", 1, LocalDate.of(2025, 1, 15))
@@ -43,7 +43,7 @@ public class TaskManagerTest extends TestCase
     }
     
     /**
- 	 * Test #32
+ 	 * Test #33
  	 * Objective: Verify Tasks sorted by Due Date are returned by nearest due date.
  	 * Input:
  	 * new Task("Low Priority", "Not Important", 1, LocalDate.of(2025, 1, 15))
@@ -64,7 +64,7 @@ public class TaskManagerTest extends TestCase
     }
     
     /**
- 	 * Test #33
+ 	 * Test #34
  	 * Objective: Verify if a task has been created that it has been added to the list.
  	 * Input: new Task("Test Task", "Test Description", 1, LocalDate.now()
  	 * Output: List contains two tasks.
@@ -79,7 +79,7 @@ public class TaskManagerTest extends TestCase
     }
     
     /**
- 	 * Test #34
+ 	 * Test #35
  	 * Objective: Verify that if the list has no tasks, nothing is listed.
  	 * Input: N/A
  	 * Output: Task list size is 0.
@@ -92,7 +92,7 @@ public class TaskManagerTest extends TestCase
     }
     
     /**
- 	 * Test #35
+ 	 * Test #36
  	 * Objective: Verify that if updating a task that is valid then that it is infact saved.
  	 * Input: 
  	 * taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
@@ -109,7 +109,7 @@ public class TaskManagerTest extends TestCase
     }
     
     /**
- 	 * Test #36
+ 	 * Test #37
  	 * Objective: Verify that task cannot be updated if a field is invalid.
  	 * Input: 
  	 * taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
@@ -135,7 +135,7 @@ public class TaskManagerTest extends TestCase
     }
     
     /**
- 	 * Test #37
+ 	 * Test #38
  	 * Objective: Verify that a task is deleted from the list if it has been chosen to.
  	 * Input: 
  	 * taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
@@ -151,7 +151,7 @@ public class TaskManagerTest extends TestCase
     }
     
     /**
- 	 * Test #38
+ 	 * Test #39
  	 * Objective: Verify that error message "Invalid task index" is returned if an attempt to delete a non existant task is made.
  	 * Input: 
  	 * taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
