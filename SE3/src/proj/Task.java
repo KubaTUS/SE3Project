@@ -27,10 +27,10 @@ public class Task
 	            throw new TaskExceptionHandler("Invalid due date");
 	        }
 	        
-	        this.title = title;
-	        this.description = description;
-	        this.prioritylevel = prioritylevel;
-	        this.duedate = duedate;
+	        setTitle(title);
+	        setDescription(description);
+	        setPrioritylevel(prioritylevel);
+	        setDuedate(duedate);
 	}
 	
 	public Task()
