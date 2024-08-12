@@ -161,7 +161,7 @@ public class MainMenu
         taskManager.addTask(newTask);
     }
 
-    private void listTasks() 
+    public void listTasks() 
     {
         if (taskManager.tasks.isEmpty()) 
         {
@@ -377,7 +377,7 @@ public class MainMenu
     }
 
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws TaskExceptionHandler
     {
     	
         MainMenu mainMenu = new MainMenu();

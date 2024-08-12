@@ -1,6 +1,7 @@
 package tests;
 import java.time.LocalDate;
 
+
 import Exceptions.TaskExceptionHandler;
 import junit.framework.TestCase;
 import proj.Task;
@@ -424,4 +425,89 @@ public class TaskTest extends TestCase
 		assertEquals(false, Task.isValidPriorityLevel(symbol));
     }
 	
+    /**
+ 	 * Test #27
+ 	 * Objective: Verify Task cannot be created with an invalid Title value.
+ 	 * Input: title = "" description = "AaAa" priority = 2 duedate = 20/01/2029
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidObject1() {
+        boolean result = true;
+        
+        try 
+        {
+            Task t1 = new Task("", "AaAa", 2, LocalDate.of(2029, 1, 20));
+        } 
+        catch (TaskExceptionHandler e) 
+        {
+            result = false;
+        }
+        assertEquals(false, result);
+    }
+	
+    /**
+ 	 * Test #28
+ 	 * Objective: Verify Task cannot be created with an invalid Description value.
+ 	 * Input: title = "AaAa" description = "" priority = 2 duedate = 20/01/2029
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidObject2() {
+        boolean result = true;
+        
+        try 
+        {
+            Task t1 = new Task("AaAa", "", 2, LocalDate.of(2029, 1, 20));
+        } 
+        catch (TaskExceptionHandler e) 
+        {
+            result = false;
+        }
+        assertEquals(false, result);
+    }
+	
+    /**
+ 	 * Test #29
+ 	 * Objective: Verify Task cannot be created with an invalid priority level value.
+ 	 * Input: title = "AaAa" description = "AaAa" priority = 4 duedate = 20/01/2029
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidObject3() {
+        boolean result = true;
+        
+        try 
+        {
+            Task t1 = new Task("AaAa", "AaAa", 4, LocalDate.of(2029, 1, 20));
+        } 
+        catch (TaskExceptionHandler e) 
+        {
+            result = false;
+        }
+        assertEquals(false, result);
+    }
+	
+    /**
+ 	 * Test #30
+ 	 * Objective: Verify Task cannot be created with an invalid due date value.
+ 	 * Input: title = "AaAa" description = "AaAa" priority = 2 duedate = 20/01/2019
+ 	 * Output: False
+ 	 */
+	
+	public void testInvalidObject4() {
+        boolean result = true;
+        
+        try 
+        {
+            Task t1 = new Task("AaAa", "AaAa", 2, LocalDate.of(2019, 1, 20));
+        } 
+        catch (TaskExceptionHandler e) 
+        {
+            result = false;
+        }
+        assertEquals(false, result);
+    }
+
+	   
 }
