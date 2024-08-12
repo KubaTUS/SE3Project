@@ -11,7 +11,7 @@ public class TaskTest extends TestCase
 	
     /**
 	 * Test #1
-	 * Objective: Verify Invalid title returns false.
+	 * Objective: Verify TITLE value being NULL is not accepted and returns an error message.
 	 * Input: String title = ""
 	 * Output: False
 	 */
@@ -26,7 +26,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #2
-	 * Objective: Verify Invalid Title returns true.
+	 * Objective: Verify TITLE value being 3 characters is not accepted and returns an error message.
 	 * Input: String title = "AaA"
 	 * Output: False
 	 */
@@ -41,7 +41,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #3
-	 * Objective: Verify Valid Title returns true.
+	 * Objective: Verify TITLE value being 4 characters is accepted.
 	 * Input: String title = "AaAa"
 	 * Output: True
 	 */
@@ -56,7 +56,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #4
-	 * Objective: Verify Valid title returns true.
+	 * Objective: Verify TITLE value being 8 characters is accepted.
 	 * Input: String title = "AaAaBbBb"
 	 * Output: True
 	 */
@@ -71,7 +71,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #5
-	 * Objective: Verify Valid title returns true.
+	 * Objective: Verify TITLE value being 20 characters is accepted.
 	 * Input: String title = "AaAaBbBbCcCcDdDdEeEe"
 	 * Output: True
 	 */
@@ -84,7 +84,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #6
-	 * Objective: Verify Invalid title returns false.
+	 * Objective: Verify TITLE value being 21 characters is not accepted and returns an error message.	
 	 * Input: String title = "AaAaBbBbCcCcDdDdEeEeF"
 	 * Output: False
 	 */
@@ -100,7 +100,7 @@ public class TaskTest extends TestCase
 	
     /**
 	 * Test #7
-	 * Objective: Verify Invalid description returns false.
+	 * Objective: Verify DESCRIPTION value being NULL is not accepted and returns an error message.
 	 * Input: String description = ""
 	 * Output: False
 	 */
@@ -116,7 +116,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #8
-	 * Objective: Verify Invalid description returns false.
+	 * Objective: Verify DESCRIPTION value being 3 characters is not accepted and returns an error message.
 	 * Input: String description = "AaA"
 	 * Output: False
 	 */
@@ -131,7 +131,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #9
-	 * Objective: Verify Valid description returns true.
+	 * Objective: Verify DESCRIPTION value being 4 characters is accepted.
 	 * Input: String description = "AaAa"
 	 * Output: True
 	 */
@@ -146,7 +146,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #10
-	 * Objective: Verify Valid description returns true.
+	 * Objective: Verify DESCRIPTION value being 8 characters is accepted.
 	 * Input: String description = "AaAaBbBb"
 	 * Output: True
 	 */
@@ -161,7 +161,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #11
-	 * Objective: Verify Valid description returns true.
+	 * Objective: Verify DESCRIPTION value being 40 characters is accepted.
 	 * Input: String description = "AaAaBbBbCcCcDdDdEeEeFfFfGgGgHhHhIiIiJjJj"
 	 * Output: True
 	 */
@@ -174,7 +174,7 @@ public class TaskTest extends TestCase
     
     /**
 	 * Test #12
-	 * Objective: Verify Invalid description returns false.
+	 * Objective: Verify DESCRIPTION value being 41 characters is not accepted and returns an error message.
 	 * Input: String description = ""  (NULL CHARS)
 	 * Output: False
 	 */
@@ -187,7 +187,7 @@ public class TaskTest extends TestCase
     
     /**
  	 * Test #13
- 	 * Objective: Verify Invalid due date returns false
+ 	 * Objective: Verify the due date being a day before the minimum due date is not accepted.
  	 * Input: LocalDate duedate = LocalDate.now().minusDays(1);
  	 * Output: True
  	 */
@@ -202,7 +202,7 @@ public class TaskTest extends TestCase
      
      /**
   	 * Test #14
-  	 * Objective: Verify Valid due date returns true
+  	 * Objective: Verify the due date being the current date is accepted.
   	 * Input: LocalDate duedate = LocalDate.now();
   	 * Output: True
   	 */
@@ -215,7 +215,7 @@ public class TaskTest extends TestCase
       
     /**
  	 * Test #15
- 	 * Objective: Verify Valid due date returns true
+ 	 * Objective: Verify the due date being the current date + 1 day is accepted.
  	 * Input: LocalDate duedate = LocalDate.now().plusDays(1);
  	 * Output: True
  	 */
@@ -228,7 +228,7 @@ public class TaskTest extends TestCase
         
     /**
  	 * Test #16
- 	 * Objective: Verify Valid due date returns true
+ 	 * Objective: Verify the due date being the current date + 150 years (max date) is accepted.
  	 * Input: LocalDate duedate = LocalDate.now().plusYears(150);
  	 * Output: True
  	 */
@@ -241,7 +241,7 @@ public class TaskTest extends TestCase
 	
     /**
  	 * Test #17
- 	 * Objective: Verify Invalid due date returns false
+ 	 * Objective: Verify the due date being a day past the max date is not accepted.
  	 * Input: LocalDate duedate = LocalDate.now().plusYears(150).plusDays(1);
  	 * Output: True
  	 */
@@ -255,7 +255,7 @@ public class TaskTest extends TestCase
 	
     /**
  	 * Test #18
- 	 * Objective: Verify Invalid due date returns false.
+ 	 * Objective: Verify priority level being below the minimum priority level is not accepted.
  	 * Input: int num = 0;
  	 * Output: False
  	 */
@@ -268,7 +268,7 @@ public class TaskTest extends TestCase
 	
     /**
  	 * Test #19
- 	 * Objective: Verify Valid Priority Level returns true.
+ 	 * Objective: Verify Priority Level being 1 is accepted.
  	 * Input: int num = 1;
  	 * Output: True
  	 */
@@ -281,7 +281,7 @@ public class TaskTest extends TestCase
 	
     /**
  	 * Test #20
- 	 * Objective: Verify Valid Priority Level returns true.
+ 	 * Objective: Verify Priority Level being 2 is accepted.
  	 * Input: int num = 2;
  	 * Output: True
  	 */
@@ -294,7 +294,7 @@ public class TaskTest extends TestCase
 	
     /**
  	 * Test #21
- 	 * Objective: Verify Valid Priority Level returns true.
+ 	 * Objective: Verify Priority Level being 3 is accepted.
  	 * Input: int num = 3;
  	 * Output: True
  	 */
@@ -307,7 +307,7 @@ public class TaskTest extends TestCase
 	
     /**
  	 * Test #22
- 	 * Objective: Verify Invalid Priority Level returns false.
+ 	 * Objective: Verify Priority Level is between 1 and 3 inclusive.
  	 * Input: int num = 4;
  	 * Output: False
  	 */
