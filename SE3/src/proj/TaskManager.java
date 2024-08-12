@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TaskManager 
 {
-    List<Task> tasks;
+    public List<Task> tasks;
 
     public TaskManager() 
     {
