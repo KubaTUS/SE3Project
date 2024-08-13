@@ -93,7 +93,7 @@ public class TaskManagerTest extends TestCase
     
     /**
  	 * Test #36
- 	 * Objective: Verify that if updating a task that is valid then that it is infact saved.
+ 	 * Objective: Verify that when updating a task that is valid then that it is infact saved.
  	 * Input: 
  	 * taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
  	 * Task taskUpdated = new Task("Updated Task", "Test Description", 1, LocalDate.now());
@@ -155,7 +155,7 @@ public class TaskManagerTest extends TestCase
  	 * Objective: Verify that error message "Invalid task index" is returned if an attempt to delete a non existant task is made.
  	 * Input: 
  	 * taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
- 	 * taskManager.deleteTask(0);
+ 	 * taskManager.deleteTask(4);
  	 * Output: Task size is 1.
  	 */
     
@@ -171,7 +171,7 @@ public class TaskManagerTest extends TestCase
             System.setOut(new PrintStream(outputStream));
             
 
-            taskManager.deleteTask(1);
+            taskManager.deleteTask(4);
             
 
             String output = outputStream.toString().trim();
@@ -185,5 +185,28 @@ public class TaskManagerTest extends TestCase
             fail("Unexpected exception: " + e.getMessage());
         }
     }
+    
+    /**
+ 	 * Test #40
+ 	 * Objective: Verify that if a task has been marked as complete, it's title is altered to contain " - COMPLETE"
+ 	 * Input: 
+ 	 * taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
+ 	 * Output: The tasks title now contains a "- COMPLETE" at the end.
+ 	 */
+    
+    public void testMarkTaskAsComplete() throws TaskExceptionHandler 
+    {
 
+        Task task = new Task("Test Task", "This is a test task.", 2, LocalDate.now());
+        taskManager.addTask(task);
+        int taskIndex = taskManager.tasks.indexOf(task);
+
+
+        taskManager.markTaskAsComplete(taskIndex);
+
+
+        Task updatedTask = taskManager.tasks.get(taskIndex);
+        assertTrue(updatedTask.getTitle().endsWith(" - COMPLETED"));
+        assertFalse(updatedTask.getTitle().endsWith(" - COMPLETEDDD"));
+    }
 }
