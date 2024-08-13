@@ -66,7 +66,7 @@ public class TaskManagerTest extends TestCase
     /**
  	 * Test #34
  	 * Objective: Verify if a task has been created that it has been added to the list.
- 	 * Input: new Task("Test Task", "Test Description", 1, LocalDate.now()
+ 	 * Input: new Task("Test Task Two", "Test Description", 1, LocalDate.now()
  	 * Output: List contains two tasks.
  	 */
 
