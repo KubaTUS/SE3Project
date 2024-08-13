@@ -350,27 +350,15 @@ public class MainMenu
         taskManager.deleteTask(index);
     }
     
-    private void markTaskAsComplete() 
-    {
+    private void markTaskAsComplete() {
         System.out.println("\nMarking a task as complete:");
         listTasks();
         System.out.print("Enter the index of the task to mark as complete: ");
         try {
             int index = sc.nextInt() - 1;
             sc.nextLine();
-            if (index >= 0 && index < taskManager.tasks.size()) 
-            {
-                Task taskToComplete = taskManager.tasks.get(index);
-                taskToComplete.setTitle(taskToComplete.getTitle() + " - COMPLETED");
-                System.out.println("Task marked as complete.");
-            } 
-            else 
-            {
-                System.out.println("Invalid task index.");
-            }
-        } 
-        catch (Exception e) 
-        {
+            taskManager.markTaskAsComplete(index); // Use the method from TaskManager
+        } catch (Exception e) {
             System.out.println("Invalid input. Please enter a valid task index.");
             sc.nextLine();
         }

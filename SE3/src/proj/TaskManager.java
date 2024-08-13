@@ -47,6 +47,20 @@ public class TaskManager
             System.out.println("Invalid task index.");
         }
     }
+    
+    public void markTaskAsComplete(int index) 
+    {
+        if (index >= 0 && index < tasks.size()) 
+        {
+            Task taskToComplete = tasks.get(index);
+            taskToComplete.setTitle(taskToComplete.getTitle() + " - COMPLETED");
+            System.out.println("Task marked as complete.");
+        } 
+        else 
+        {
+            System.out.println("Invalid task index.");
+        }
+    }
 
     public void deleteTask(int index) 
     {
