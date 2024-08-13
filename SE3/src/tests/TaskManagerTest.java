@@ -95,15 +95,15 @@ public class TaskManagerTest extends TestCase
  	 * Test #36
  	 * Objective: Verify that when updating a task that is valid then that it is infact saved.
  	 * Input: 
- 	 * taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
- 	 * Task taskUpdated = new Task("Updated Task", "Test Description", 1, LocalDate.now());
+ 	 * new Task("Test Task", "Test Description", 2, LocalDate.of(2029, 3, 19)));
+ 	 * new Task("Updated Task", "Test Description", 3, LocalDate.of(2030, 3, 19));
  	 * Output: Task with old details now becomes the task with new details.
  	 */
     
     public void testUpdateTask() throws TaskExceptionHandler 
     {
-    	taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
-    	Task taskUpdated = new Task("Updated Task", "Test Description", 1, LocalDate.now());
+    	taskManager.addTask(new Task("Test Task", "Test Description", 2, LocalDate.of(2029, 3, 19)));
+    	Task taskUpdated = new Task("Updated Task", "Updated Description", 3, LocalDate.of(2030, 3, 19));
     	taskManager.updateTask(0, taskUpdated);
     	assertEquals("Updated Task", taskManager.tasks.get(0).getTitle());
     }
@@ -190,14 +190,14 @@ public class TaskManagerTest extends TestCase
  	 * Test #40
  	 * Objective: Verify that if a task has been marked as complete, it's title is altered to contain " - COMPLETE"
  	 * Input: 
- 	 * taskManager.addTask(new Task("Test Task", "Test Description", 1, LocalDate.now()));
+ 	 * new Task("DO SHOPPING", "Test Description", 2, LocalDate.of(2029, 3, 19)));
  	 * Output: The tasks title now contains a "- COMPLETE" at the end.
  	 */
     
     public void testMarkTaskAsComplete() throws TaskExceptionHandler 
     {
 
-        Task task = new Task("Test Task", "This is a test task.", 2, LocalDate.now());
+        Task task = new Task("DO SHOPPING", "This is a test task.", 2, LocalDate.of(2029, 3, 19));
         taskManager.addTask(task);
         int taskIndex = taskManager.tasks.indexOf(task);
 
@@ -207,6 +207,6 @@ public class TaskManagerTest extends TestCase
 
         Task updatedTask = taskManager.tasks.get(taskIndex);
         assertTrue(updatedTask.getTitle().endsWith(" - COMPLETED"));
-        assertFalse(updatedTask.getTitle().endsWith(" - COMPLETEDDD"));
+        assertFalse(updatedTask.getTitle().endsWith(" - XXXXX"));
     }
 }
